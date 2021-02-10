@@ -1,6 +1,6 @@
 # Advent of Code solutions in Python
 
-With CLI built with [Click](https://click.palletsprojects.com) framework for running solutions:
+With CLI built with [Click](https://click.palletsprojects.com) framework for running specific solutions.
 
 ## Usage
 
