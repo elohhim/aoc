@@ -1,0 +1,37 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python AOC",
+            "type": "python",
+            "request": "launch",
+            "program": "aoc",
+            "cwd": "${workspaceFolder}/python",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}/python"
+            },
+            "args": [
+                "solve",
+                "${input:year}",
+                "${input:day}"
+            ]
+        }
+    ],
+    "inputs": [
+		{
+			"id": "year",
+			"type": "promptString",
+			"default": "2015",
+			"description": "Year"
+		},
+        {
+			"id": "day",
+			"type": "promptString",
+			"default": "2",
+			"description": "Day"
+		}
+	]
+}
