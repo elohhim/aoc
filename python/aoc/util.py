@@ -1,4 +1,6 @@
+from functools import wraps
 from typing import Any, Callable, List, Tuple
+from time import time
 
 
 def dir_path(year: int, day: int) -> str:
@@ -28,3 +30,18 @@ def test(fun: Callable[[str], Any],
         except AssertionError:
             print(f'For: {data} expected: {expected} got: {result}')
             exit(1)
+
+
+Timed = Tuple[int, Any]
+
+
+def timed(fun):
+
+    @wraps(fun)
+    def wrapper(*args, **kwargs) -> Timed:
+        start = time()
+        result = fun(*args, **kwargs)
+        duration = int(1000 * (time() - start))
+        return duration, result
+
+    return wrapper

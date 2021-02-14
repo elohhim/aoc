@@ -1,6 +1,6 @@
 import click
 from importlib import import_module
-from util import read_input, read_tc, test
+from util import read_input, read_tc, test, timed
 
 
 @click.group()
@@ -19,12 +19,14 @@ def solve(year: int, day: int) -> None:
     tc1 = read_tc(year, day, 1)
     if tc1:
         test(module.solve_1, tc1)
-    click.echo(f'Solution 1: {module.solve_1(data)}')
+    part_1_time, part_1_solution = timed(module.solve_1)(data)
+    click.echo(f'Solution 1: {part_1_solution}, Took: {part_1_time}ms')
 
     tc2 = read_tc(year, day, 2)
     if tc2:
         test(module.solve_2, tc2)
-    click.echo(f'Solution 2: {module.solve_2(data)}')
+    part_2_time, part_2_solution = timed(module.solve_2)(data)
+    click.echo(f'Solution 2: {part_2_solution}, Took: {part_2_time}ms')
 
 
 if __name__ == '__main__':

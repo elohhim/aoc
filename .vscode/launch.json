@@ -30,7 +30,7 @@
         {
 			"id": "day",
 			"type": "promptString",
-			"default": "3",
+			"default": "5",
 			"description": "Day"
 		}
 	]
