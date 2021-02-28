@@ -1,0 +1,21 @@
+reset;
+model model1.mod;
+data data.dat;
+option solver baron; # using baron cause of non linear nature
+objective MaxScore;
+solve;
+
+display teaspoonPerIngredient;
+display scorePerProperty;
+printf "Score: %d\n", MaxScore;
+
+reset;
+model model2.mod;
+data data.dat;
+option solver baron; # using baron cause of non linear nature
+objective MaxScore;
+solve;
+
+display teaspoonPerIngredient;
+display scorePerProperty;
+printf "Score: %d\n", MaxScore;

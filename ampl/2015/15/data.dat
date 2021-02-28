@@ -1,0 +1,15 @@
+set INGREDIENTS := Sugar Sprinkles Candy Chocolate;
+set PROPERTIES := capacity durability flavor texture calories;
+set SCORE_PROPERTIES := capacity durability flavor texture;
+
+param ingredientProperties:
+				capacity	durability	flavor	texture	calories :=
+	Sugar		3			0			0		-3		2
+	Sprinkles	-3			3			0		0		9
+	Candy		-1			0			4		0		1
+	Chocolate	0			0			-2		2		8
+	;
+	
+param teaspoonLimit := 100;
+
+param caloriesTarget := 500;
