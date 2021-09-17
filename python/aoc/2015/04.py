@@ -12,7 +12,7 @@ def get_candidate(data: str) -> Iterator[str]:
 def find_hash_idx_starting_with(data: str, prefix: str) -> int:
     for idx, candidate in get_candidate(data):
         hash = md5(candidate.encode()).hexdigest()
-        if hash[:5] == prefix:
+        if hash[:len(prefix)] == prefix:
             return idx
 
 
