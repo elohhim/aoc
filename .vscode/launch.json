@@ -5,7 +5,19 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python AOC",
+            "type": "java",
+            "name": "Launch AoCApp",
+            "request": "launch",
+            "mainClass": "elohhim.aoc.AoCApp",
+            "projectName": "java",
+            "args": [
+                "solve",
+                "${input:year}",
+                "${input:day}"
+            ]
+        },
+        {
+            "name": "Python AoC",
             "type": "python",
             "request": "launch",
             "program": "aoc",
@@ -30,7 +42,7 @@
         {
 			"id": "day",
 			"type": "promptString",
-			"default": "17",
+			"default": "18",
 			"description": "Day"
 		}
 	]
