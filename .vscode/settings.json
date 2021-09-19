@@ -1,0 +1,14 @@
+{
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.format.enabled": false,
+    "java.semanticHighlighting.enabled": true,
+    "gradle.nestedProjects": true,
+    "emeraldwalk.runonsave": {
+        "commands": [
+          {
+            "match": "\\.java$",
+            "cmd": "powershell scripts/format_java.ps1 ${file}"
+          }
+        ]
+      }
+}
