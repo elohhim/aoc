@@ -1,0 +1,33 @@
+plugins {
+    id 'application'
+    id 'io.freefair.lombok' version '6.1.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'info.picocli:picocli:4.6.1'
+
+    // https://mvnrepository.com/artifact/com.google.dagger/dagger
+    implementation 'com.google.dagger:dagger:2.37'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.37'
+    
+    // https://mvnrepository.com/artifact/org.springframework/spring-context
+    implementation 'org.springframework:spring-context:5.3.10'
+
+    // https://mvnrepository.com/artifact/com.google.flogger/flogger
+    implementation 'com.google.flogger:flogger:0.6'
+
+
+    // https://mvnrepository.com/artifact/io.vavr/vavr
+    implementation 'io.vavr:vavr:0.10.4'
+}
+
+sourceCompatibility = 16
+targetCompatibility = 16
+
+application {
+    mainClass = 'elohhim.aoc.AoCApp'
+}
