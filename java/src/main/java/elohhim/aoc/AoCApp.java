@@ -2,7 +2,7 @@ package elohhim.aoc;
 
 import elohhim.aoc.di.DIFramework;
 import elohhim.aoc.di.spring.ApplicationConfig;
-import elohhim.aoc.shared.AoCRunner;
+import elohhim.aoc.runner.AoCRunner;
 import elohhim.aoc.shared.PuzzleKey;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import picocli.CommandLine;
@@ -15,6 +15,7 @@ import picocli.CommandLine.Parameters;
     description = "Runner application for Java based Advent of Code solutions",
     subcommands = {CommandLine.HelpCommand.class})
 public class AoCApp {
+
   public static void main(String[] args) {
     int exitCode = new CommandLine(new AoCApp()).execute(args);
     System.exit(exitCode);

@@ -1,6 +1,7 @@
 # Advent of Code solutions in Java (maybe other JVM languages in the future)
 
 Uses [picocli](https://picocli.info/) for creating CLI interface and [Gradle](https://gradle.org/) as the build tool.
+Kinda over-engineered on purpose, don't get scared.
 
 ## Usage
 

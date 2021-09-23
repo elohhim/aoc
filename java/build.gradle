@@ -13,16 +13,25 @@ dependencies {
     // https://mvnrepository.com/artifact/com.google.dagger/dagger
     implementation 'com.google.dagger:dagger:2.37'
     annotationProcessor 'com.google.dagger:dagger-compiler:2.37'
-    
+
     // https://mvnrepository.com/artifact/org.springframework/spring-context
     implementation 'org.springframework:spring-context:5.3.10'
+
+    // https://mvnrepository.com/artifact/io.vavr/vavr
+    implementation 'io.vavr:vavr:0.10.4'
+
+    // https://mvnrepository.com/artifact/org.slf4j/slf4j-simple
+    testImplementation 'org.slf4j:slf4j-simple:1.7.32'
 
     // https://mvnrepository.com/artifact/com.google.flogger/flogger
     implementation 'com.google.flogger:flogger:0.6'
 
+    // https://mvnrepository.com/artifact/com.google.flogger/flogger-system-backend
+    implementation 'com.google.flogger:flogger-system-backend:0.6'
 
-    // https://mvnrepository.com/artifact/io.vavr/vavr
-    implementation 'io.vavr:vavr:0.10.4'
+    testImplementation(platform('org.junit:junit-bom:5.8.1'))
+    testImplementation('org.junit.jupiter:junit-jupiter')
+    testImplementation 'com.tngtech.archunit:archunit-junit5:0.21.0'
 }
 
 sourceCompatibility = 16
@@ -30,4 +39,8 @@ targetCompatibility = 16
 
 application {
     mainClass = 'elohhim.aoc.AoCApp'
+}
+
+test {
+    useJUnitPlatform()
 }
