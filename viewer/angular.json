@@ -29,7 +29,17 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "y*/d*/*Solver.java",
+                "input": "../java/src/main/java/elohhim/aoc/solver/",
+                "output": "/assets/solutions/java/" 
+              },
+              {
+                "glob": "*/!(__init__).py",
+                "input": "../python/aoc/",
+                "output": "/assets/solutions/python/" 
+              }
             ],
             "styles": [
               "src/styles.scss"
