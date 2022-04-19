@@ -1,0 +1,41 @@
+@mixin panels($direction) {
+  display: flex;
+  justify-content: space-between;
+  @if ($direction == vertical) {
+    flex-direction: column;
+  }
+
+  > * {
+    overflow: auto;
+    @if ($direction == vertical) {
+      width: 100%;
+    } @else if ($direction == horizontal) {
+      height: 100%;
+    }
+  }
+
+  > :not(:last-child) {
+    resize: $direction;
+  }
+
+  > :last-child {
+    flex: 1;
+  }
+}
+
+:host {
+  @include panels(horizontal);
+  width: 100%;
+  height: 100%;
+}
+
+aside {
+  width: 180px;
+  padding: 8px;
+
+  .logo {
+    width: 128px;
+    height: 128px;
+    margin: 9px;
+  }
+}

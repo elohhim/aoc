@@ -1,0 +1,18 @@
+<ng-container *ngIf="event$ | async as event">
+  <ng-container *ngIf="day$ | async as day">
+    <h2>{{ event }}, Day {{ day }}</h2>
+
+    <dl>
+      <dt>AoC link:</dt>
+      <dd>
+        <a
+          href="https://adventofcode.com/{{ event }}/day/{{ day }}"
+          target="blank"
+          rel="norefferer noopener"
+        >
+          https://adventofcode.com/{{ event }}/day/{{ day }}
+        </a>
+      </dd>
+    </dl>
+  </ng-container>
+</ng-container>
