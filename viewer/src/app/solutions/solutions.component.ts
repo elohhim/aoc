@@ -6,20 +6,17 @@ import { map, Observable } from 'rxjs';
   selector: 'app-solutions',
   templateUrl: './solutions.component.html',
   styleUrls: ['./solutions.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SolutionsComponent implements OnInit {
-
   event$: Observable<number> = this.activatedRoute.params.pipe(
     map((params) => params['event'])
   );
   day$: Observable<number> = this.activatedRoute.params.pipe(
     map((params) => params['day'])
-  );;
+  );
 
-  constructor(private activatedRoute: ActivatedRoute) { }
+  constructor(private activatedRoute: ActivatedRoute) {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
