@@ -1,4 +1,4 @@
-import { EventKey } from '../+model/event-key';
+import { EventKey } from '../model/event-key';
 import { PythonAdapter } from './python.adapter';
 
 describe('PythonAdapter', () => {

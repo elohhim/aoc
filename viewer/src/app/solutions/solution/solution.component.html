@@ -1,0 +1,12 @@
+<dl>
+  <dt>GitHub link:</dt>
+  <dd>
+    <a
+      [href]="eventKey | gitHubLink: language"
+      target="blank"
+      rel="norefferer noopener"
+    >
+      {{ eventKey | gitHubLink: language }}
+    </a>
+  </dd>
+</dl>

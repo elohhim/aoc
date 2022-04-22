@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Language } from 'src/shared/+model/language';
+import { Language } from 'src/shared/model/language';
 import { Adapter } from 'src/shared/adapters/adapter';
 import { ADAPTERS } from 'src/shared/adapters/adapter-registry';
 

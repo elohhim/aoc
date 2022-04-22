@@ -1,18 +1,19 @@
-<ng-container *ngIf="event$ | async as event">
-  <ng-container *ngIf="day$ | async as day">
-    <h2>{{ event }}, Day {{ day }}</h2>
+<ng-container *ngIf="eventKey$ | async as eventKey">
+  <h2>{{ eventKey.event }}, Day {{ eventKey.day }}</h2>
 
-    <dl>
-      <dt>AoC link:</dt>
-      <dd>
-        <a
-          href="https://adventofcode.com/{{ event }}/day/{{ day }}"
-          target="blank"
-          rel="norefferer noopener"
-        >
-          https://adventofcode.com/{{ event }}/day/{{ day }}
-        </a>
-      </dd>
-    </dl>
-  </ng-container>
+  <dl>
+    <dt>AoC link:</dt>
+    <dd>
+      <a [href]="eventKey | aocLink" target="blank" rel="norefferer noopener">
+        {{ eventKey | aocLink }}
+      </a>
+    </dd>
+    <dt>Languages:</dt>
+    <dd *ngFor="let language of eventKey | solutionLanguages">
+      <a [routerLink]="language">
+        {{ language }}
+      </a>
+    </dd>
+  </dl>
+  <router-outlet></router-outlet>
 </ng-container>

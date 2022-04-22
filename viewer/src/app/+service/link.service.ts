@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { EventKey } from 'src/shared/+model/event-key';
-import { Language } from 'src/shared/+model/language';
+import { EventKey } from 'src/shared/model/event-key';
+import { Language } from 'src/shared/model/language';
 import { AdapterService } from './adapter.service';
 
 // TODO: 2022-04-22 jk - TBD:

@@ -1,6 +1,7 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 import { map, Observable } from 'rxjs';
+import { EventKey } from 'src/shared/model/event-key';
 
 @Component({
   selector: 'app-solutions',
@@ -9,14 +10,22 @@ import { map, Observable } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SolutionsComponent implements OnInit {
-  event$: Observable<number> = this.activatedRoute.params.pipe(
-    map((params) => params['event'])
-  );
-  day$: Observable<number> = this.activatedRoute.params.pipe(
-    map((params) => params['day'])
+  eventKey$: Observable<EventKey> = this.activatedRoute.params.pipe(
+    map((params) => this.parseParams(params))
   );
 
   constructor(private activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {}
+
+  parseParams(params: Params): EventKey {
+    const { event, day } = params;
+    if (typeof event === 'string' && typeof day === 'string') {
+      return {
+        event: parseInt(event),
+        day: parseInt(day),
+      };
+    }
+    throw new Error(`[${this.constructor.name}] Invalid route params`);
+  }
 }

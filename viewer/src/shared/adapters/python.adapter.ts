@@ -1,4 +1,4 @@
-import { EventKey } from '../+model/event-key';
+import { EventKey } from '../model/event-key';
 import { Adapter } from './adapter';
 
 export class PythonAdapter implements Adapter<'Python'> {

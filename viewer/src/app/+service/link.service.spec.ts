@@ -1,12 +1,13 @@
 import { TestBed } from '@angular/core/testing';
-import { EventKey } from 'src/shared/+model/event-key';
-import { Language } from 'src/shared/+model/language';
+import { EventKey } from 'src/shared/model/event-key';
+import { Language } from 'src/shared/model/language';
 
 import { LinkService } from './link.service';
 
 describe('LinkService', () => {
   let service: LinkService;
 
+  // TODO: 2022-04-22 jk - not 100% unit as it does not mock AdapterService
   beforeEach(() => {
     TestBed.configureTestingModule({});
     service = TestBed.inject(LinkService);
