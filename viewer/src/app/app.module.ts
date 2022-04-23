@@ -4,9 +4,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SolutionsModule } from './solutions/solutions.module';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { EventSelectorComponent } from './event-selector/event-selector.component';
 
 @NgModule({
-  declarations: [AppComponent, WelcomeComponent],
+  declarations: [AppComponent, WelcomeComponent, EventSelectorComponent],
   imports: [BrowserModule, AppRoutingModule, SolutionsModule],
   providers: [],
   bootstrap: [AppComponent],

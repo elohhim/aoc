@@ -1,0 +1,7 @@
+<ul>
+  <li *ngFor="let eventKey of eventKeys">
+    <a routerLink="event/{{ eventKey.event }}/day/{{ eventKey.day }}">
+      {{ eventKey.event }} / {{ eventKey.day }}
+    </a>
+  </li>
+</ul>

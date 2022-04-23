@@ -1,4 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { IndexService } from 'src/app/+service/index.service';
+import { AssetPaths } from 'src/shared/model/asset-path';
 
 @Component({
   selector: 'app-solution',
@@ -7,10 +9,16 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SolutionComponent implements OnInit {
-  eventKey = { event: 2010, day: 10 };
-  language = 'Java' as const;
+  eventKey = { event: 2015, day: 1 };
+  language = 'Python' as const;
+  assets: AssetPaths = [];
 
-  constructor() {}
+  constructor(private indexService: IndexService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.assets = this.indexService.getAssetPaths({
+      ...this.eventKey,
+      language: this.language,
+    });
+  }
 }

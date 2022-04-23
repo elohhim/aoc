@@ -47,7 +47,13 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "fileReplacements": [
+              {
+                "replace": "src/data/data.ts",
+                "with": "tmp/generated/data.ts"
+              }
+            ]
           },
           "configurations": {
             "production": {
@@ -116,7 +122,13 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "fileReplacements": [
+              {
+                "replace": "src/data/data.ts",
+                "with": "src/data/data.test.ts"
+              }
+            ]
           }
         }
       }
