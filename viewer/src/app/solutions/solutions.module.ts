@@ -6,6 +6,7 @@ import { GitHubLinkPipe } from './git-hub-link.pipe';
 import { SolutionsComponent } from './solutions.component';
 import { SolutionComponent } from './solution/solution.component';
 import { SolutionLanguagesPipe } from './solution-languages.pipe';
+import { MarkdownModule } from 'ngx-markdown';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,7 @@ import { SolutionLanguagesPipe } from './solution-languages.pipe';
     SolutionComponent,
     SolutionLanguagesPipe,
   ],
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, MarkdownModule.forChild()],
   exports: [SolutionsComponent],
 })
 export class SolutionsModule {}

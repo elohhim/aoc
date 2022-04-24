@@ -12,4 +12,5 @@
 </dl>
 <article *ngFor="let asset of assets">
   {{ asset }}
+  <markdown [src]="asset" lineNumbers></markdown>
 </article>
