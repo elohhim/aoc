@@ -32,4 +32,12 @@ export class IndexService {
   getSolutionFiles({ event, day, language }: SolutionKey): FileMetaData[] {
     return SOLUTIONS_DATA[event][day][language]?.files ?? [];
   }
+
+  isValidEventKey({ event, day }: EventKey): boolean {
+    return SOLUTIONS_DATA[event]?.[day] !== undefined;
+  }
+
+  isValidSolutionKey({ event, day, language }: SolutionKey): boolean {
+    return SOLUTIONS_DATA[event]?.[day]?.[language] !== undefined;
+  }
 }

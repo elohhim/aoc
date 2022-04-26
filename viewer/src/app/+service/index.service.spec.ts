@@ -58,4 +58,50 @@ describe('IndexService', () => {
       ]);
     });
   });
+
+  describe('isValidEventKey', () => {
+    unroll(
+      'should tell if event key present in data',
+      () => service.isValidEventKey,
+      [
+        {
+          args: [{ event: 2015, day: 1 }],
+          expected: true,
+        },
+        {
+          args: [{ event: 2015, day: 2 }],
+          expected: false,
+        },
+        {
+          args: [{ event: 2014, day: 2 }],
+          expected: false,
+        },
+      ]
+    );
+  });
+
+  describe('isValidSolutionKey', () => {
+    unroll(
+      'should tell if event key present in data',
+      () => service.isValidSolutionKey,
+      [
+        {
+          args: [{ event: 2015, day: 1, language: 'Python' }],
+          expected: true,
+        },
+        {
+          args: [{ event: 2015, day: 1, language: 'Java' }],
+          expected: false,
+        },
+        {
+          args: [{ event: 2015, day: 2, language: 'Python' }],
+          expected: false,
+        },
+        {
+          args: [{ event: 2014, day: 1, language: 'Python' }],
+          expected: false,
+        },
+      ]
+    );
+  });
 });

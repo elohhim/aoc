@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { ExtraOptions, RouterModule, Routes } from '@angular/router';
+import { EventKeyGuard } from './+guards/event-key.guard';
+import { SolutionKeyGuard } from './+guards/solution-key.guard';
 import { EventKeyProviderComponent } from './solutions/event-key-provider/event-key-provider.component';
 import { SolutionKeyProviderComponent } from './solutions/solution-key-provider/solution-key-provider.component';
 import { SolutionComponent } from './solutions/solution/solution.component';
@@ -13,6 +15,7 @@ const routes: Routes = [
   },
   {
     path: 'event/:event/day/:day',
+    canActivate: [EventKeyGuard],
     component: EventKeyProviderComponent,
     children: [
       {
@@ -21,6 +24,7 @@ const routes: Routes = [
         children: [
           {
             path: ':language',
+            canActivate: [SolutionKeyGuard],
             component: SolutionKeyProviderComponent,
             children: [
               {
@@ -35,8 +39,12 @@ const routes: Routes = [
   },
 ];
 
+const config: ExtraOptions = {
+  paramsInheritanceStrategy: 'always',
+};
+
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, config)],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
