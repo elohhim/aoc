@@ -1,15 +1,10 @@
-<article>
-  <h3>{{ language }} solution</h3>
-  <ng-container *ngFor="let file of files">
+<article *ngIf="solutionKey$ | async as key">
+  <h2>{{ key.language }} solution</h2>
+  <ng-container *ngFor="let file of files$ | async">
     <details open>
       <summary>
-        <a
-          [href]="eventKey | gitHubLink: language"
-          target="blank"
-          rel="norefferer noopener"
-        >
-          {{ eventKey | gitHubLink: language }}
-        </a>
+        {{ file | fileName }}
+        <a appExternalLink [href]="file | gitHubLink"> see on GitHub </a>
       </summary>
       <markdown [src]="file.assetPath" lineNumbers></markdown>
     </details>

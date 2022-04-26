@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { EventKey } from 'src/shared/model/event-key';
 import { Language } from 'src/shared/model/language';
-import { IndexService } from '../+service/index.service';
+import { IndexService } from '../../+service/index.service';
 
 @Pipe({
   name: 'solutionLanguages',

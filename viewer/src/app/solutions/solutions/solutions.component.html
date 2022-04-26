@@ -1,16 +1,16 @@
 <ng-container *ngIf="eventKey$ | async as eventKey">
-  <h2>{{ eventKey.event }}, Day {{ eventKey.day }}</h2>
+  <h1>{{ eventKey.event }}, Day {{ eventKey.day }}</h1>
 
   <dl>
     <dt>AoC link:</dt>
     <dd>
-      <a [href]="eventKey | aocLink" target="blank" rel="norefferer noopener">
+      <a appExternalLink [href]="eventKey | aocLink">
         {{ eventKey | aocLink }}
       </a>
     </dd>
     <dt>Languages:</dt>
     <dd *ngFor="let language of eventKey | solutionLanguages">
-      <a [routerLink]="language">
+      <a [routerLink]="language" routerLinkActive="active">
         {{ language }}
       </a>
     </dd>

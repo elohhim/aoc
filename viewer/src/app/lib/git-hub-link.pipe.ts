@@ -1,5 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { EventKey } from 'src/shared/model/event-key';
+import { FileMetaData } from 'src/shared/model/file-meta-data';
 import { Language } from 'src/shared/model/language';
 import { LinkService } from '../+service/link.service';
 
@@ -9,7 +10,7 @@ import { LinkService } from '../+service/link.service';
 export class GitHubLinkPipe implements PipeTransform {
   constructor(private linkService: LinkService) {}
 
-  transform(eventKey: EventKey, language: Language): string {
-    return this.linkService.getGitHubLink(eventKey, language);
+  transform(file: FileMetaData): string {
+    return this.linkService.getGitHubLink2(file);
   }
 }

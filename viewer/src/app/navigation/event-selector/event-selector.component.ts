@@ -1,6 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { EventKey } from 'src/shared/model/event-key';
-import { IndexService } from '../+service/index.service';
+import { IndexService } from '../../+service/index.service';
 
 @Component({
   selector: 'app-event-selector',
