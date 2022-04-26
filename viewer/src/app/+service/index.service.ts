@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { SOLUTIONS_DATA } from 'src/data/data';
-import { AssetPaths } from 'src/shared/model/asset-path';
 import { EventKey } from 'src/shared/model/event-key';
+import { FileMetaData } from 'src/shared/model/file-meta-data';
+import { Language } from 'src/shared/model/language';
 import { SolutionKey } from 'src/shared/model/solution-key';
 
 /**
@@ -23,7 +24,12 @@ export class IndexService {
     );
   }
 
-  getAssetPaths({ event, day, language }: SolutionKey): AssetPaths {
-    return SOLUTIONS_DATA[event][day][language] ?? [];
+  getSolutionLanguages({ event, day }: EventKey): Language[] {
+    // TODO: 2022-04-25 jk - again lack of typing :/
+    return Object.keys(SOLUTIONS_DATA[event][day]) as Language[];
+  }
+
+  getSolutionFiles({ event, day, language }: SolutionKey): FileMetaData[] {
+    return SOLUTIONS_DATA[event][day][language]?.files ?? [];
   }
 }

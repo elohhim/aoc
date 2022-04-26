@@ -1,18 +1,37 @@
-import { SolutionsData } from 'src/shared/model/solutions-data';
+import { SolutionMetaDataIndex } from 'src/shared/model/solution-meta-data-index';
 
-export const SOLUTIONS_DATA: SolutionsData = {
+export const SOLUTIONS_DATA: SolutionMetaDataIndex = {
   2015: {
     1: {
-      Java: ['/assets/solutions/path/to/java/Y2015D01Solver.java'],
-      Python: ['/assets/solutions/python/2015/01.py'],
+      Python: {
+        files: [
+          {
+            repositoryPath: 'python/aoc/2015/01.py',
+            assetPath: '/assets/solutions/python/2015/01.py',
+          },
+        ],
+      },
     },
   },
-  2016: {
+  2021: {
     1: {
-      Java: ['/assets/solutions/path/to/java/Y2016D01Solver.java'],
-    },
-    2: {
-      Java: ['/assets/solutions/path/to/java/Y2016D01Solver,java'],
+      Java: {
+        files: [
+          {
+            repositoryPath:
+              'java/src/main/java/elohhim/aoc/solver/y2021/d01/Y2021D01Solver.java',
+            assetPath: '/assets/solutions/java/y2021/d01/Y2021D01Solver.java',
+          },
+        ],
+      },
+      Python: {
+        files: [
+          {
+            repositoryPath: 'python/aoc/2021/01.py',
+            assetPath: '/assets/solutions/python/2021/01.py',
+          },
+        ],
+      },
     },
   },
 };

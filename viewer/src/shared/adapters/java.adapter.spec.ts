@@ -2,8 +2,6 @@ import { EventKey } from '../model/event-key';
 import { JavaAdapter } from './java.adapter';
 
 describe('JavaAdapter', () => {
-  const javaAdapter = new JavaAdapter();
-
   describe('getSolutionRepositoryPath', () => {
     [
       {
@@ -19,7 +17,7 @@ describe('JavaAdapter', () => {
     ].forEach(({ day, expected }) =>
       it(`should return ${expected} path to Java solver class containing solution for given event key`, () => {
         const eventKey: EventKey = { event: 2010, day };
-        const result = javaAdapter.getSolutionRepositoryPath(eventKey);
+        const result = JavaAdapter.getSolutionRepositoryPath(eventKey);
         expect(result).toEqual(expected);
       })
     );

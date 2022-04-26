@@ -1,6 +1,6 @@
 // This file is just a stub and is raplaced by data generated based on
 // repository content during build process
 
-import { SolutionsData } from 'src/shared/model/solutions-data';
+import { SolutionMetaDataIndex } from 'src/shared/model/solution-meta-data-index';
 
-export const SOLUTIONS_DATA: SolutionsData = {};
+export const SOLUTIONS_DATA: SolutionMetaDataIndex = {};

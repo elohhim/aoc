@@ -1,6 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { IndexService } from 'src/app/+service/index.service';
-import { AssetPaths } from 'src/shared/model/asset-path';
+import { FileMetaData } from 'src/shared/model/file-meta-data';
 
 @Component({
   selector: 'app-solution',
@@ -11,12 +11,12 @@ import { AssetPaths } from 'src/shared/model/asset-path';
 export class SolutionComponent implements OnInit {
   eventKey = { event: 2015, day: 1 };
   language = 'Python' as const;
-  assets: AssetPaths = [];
+  files: FileMetaData[] = [];
 
   constructor(private indexService: IndexService) {}
 
   ngOnInit(): void {
-    this.assets = this.indexService.getAssetPaths({
+    this.files = this.indexService.getSolutionFiles({
       ...this.eventKey,
       language: this.language,
     });

@@ -11,8 +11,8 @@ type Adapters = {
   [key in Language]: Adapter<key>;
 };
 
-// TS compiler will ensure that proper adapters are present
+// TS compiler will ensure that proper adapters are registered here
 export const ADAPTERS: Adapters = {
-  Python: new PythonAdapter(),
-  Java: new JavaAdapter(),
+  Python: PythonAdapter,
+  Java: JavaAdapter,
 } as const;

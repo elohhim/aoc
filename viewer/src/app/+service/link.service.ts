@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { EventKey } from 'src/shared/model/event-key';
+import { FileMetaData } from 'src/shared/model/file-meta-data';
 import { Language } from 'src/shared/model/language';
 import { AdapterService } from './adapter.service';
 
@@ -22,5 +23,9 @@ export class LinkService {
     const adapter = this.adapterService.resolve(language);
     const repoPath = adapter.getSolutionRepositoryPath(eventKey);
     return `https://github.com/elohhim/aoc/blob/main/${repoPath}`;
+  }
+
+  getGitHubLink2({ repositoryPath }: FileMetaData): string {
+    return `https://github.com/elohhim/aoc/blob/main/${repositoryPath}`;
   }
 }

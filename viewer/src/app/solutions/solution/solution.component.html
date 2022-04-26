@@ -1,16 +1,18 @@
-<dl>
-  <dt>GitHub link:</dt>
-  <dd>
-    <a
-      [href]="eventKey | gitHubLink: language"
-      target="blank"
-      rel="norefferer noopener"
-    >
-      {{ eventKey | gitHubLink: language }}
-    </a>
-  </dd>
-</dl>
-<article *ngFor="let asset of assets">
-  {{ asset }}
-  <markdown [src]="asset" lineNumbers></markdown>
+<article>
+  <h3>{{ language }} solution</h3>
+  <ng-container *ngFor="let file of files">
+    <details open>
+      <summary>
+        <a
+          [href]="eventKey | gitHubLink: language"
+          target="blank"
+          rel="norefferer noopener"
+        >
+          {{ eventKey | gitHubLink: language }}
+        </a>
+      </summary>
+      <markdown [src]="file.assetPath" lineNumbers></markdown>
+    </details>
+    <hr />
+  </ng-container>
 </article>
