@@ -1,4 +1,3 @@
-import { pipe } from 'rxjs';
 import { FileMetaData } from 'src/shared/model/file-meta-data';
 import { FileNamePipe } from './file-name.pipe';
 

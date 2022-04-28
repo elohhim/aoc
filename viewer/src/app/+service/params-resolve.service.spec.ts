@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { pureIt, unroll } from 'src/spec-utils';
+import { unroll } from 'src/spec-utils';
 
 import { ParamsResolveService } from './params-resolve.service';
 

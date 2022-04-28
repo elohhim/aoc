@@ -1,6 +1,4 @@
 import { TestBed } from '@angular/core/testing';
-import { EventKey } from 'src/shared/model/event-key';
-import { Language } from 'src/shared/model/language';
 import { SolutionKey } from 'src/shared/model/solution-key';
 import { unroll } from 'src/spec-utils';
 

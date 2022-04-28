@@ -9,7 +9,6 @@ import { Observable } from 'rxjs';
 import { SolutionKey } from 'src/shared/model/solution-key';
 import { IndexService } from '../+service/index.service';
 import { ParamsResolveService } from '../+service/params-resolve.service';
-import { EventKeyProviderComponent } from '../solutions/event-key-provider/event-key-provider.component';
 
 @Injectable({
   providedIn: 'root',

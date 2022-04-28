@@ -1,7 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { EventKey } from 'src/shared/model/event-key';
 import { FileMetaData } from 'src/shared/model/file-meta-data';
-import { Language } from 'src/shared/model/language';
 import { LinkService } from '../+service/link.service';
 
 @Pipe({

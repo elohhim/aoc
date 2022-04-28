@@ -1,12 +1,6 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import {
-  combineLatest,
-  distinctUntilChanged,
-  map,
-  Observable,
-  tap,
-} from 'rxjs';
+import { combineLatest, distinctUntilChanged, map, Observable } from 'rxjs';
 import { ParamsResolveService } from 'src/app/+service/params-resolve.service';
 import { SolutionKey } from 'src/shared/model/solution-key';
 import { EventKeyProviderComponent } from '../event-key-provider/event-key-provider.component';
@@ -17,7 +11,7 @@ import { EventKeyProviderComponent } from '../event-key-provider/event-key-provi
   styleUrls: ['./solution-key-provider.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SolutionKeyProviderComponent implements OnInit {
+export class SolutionKeyProviderComponent {
   readonly solutionKey$: Observable<SolutionKey> = combineLatest([
     this.eventKeyProvider.eventKey$,
     this.activatedRoute.params,
@@ -34,6 +28,4 @@ export class SolutionKeyProviderComponent implements OnInit {
     private eventKeyProvider: EventKeyProviderComponent,
     private paramsResolveService: ParamsResolveService
   ) {}
-
-  ngOnInit(): void {}
 }

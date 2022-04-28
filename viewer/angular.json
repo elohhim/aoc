@@ -36,12 +36,12 @@
               {
                 "glob": "y*/d*/*Solver.java",
                 "input": "../java/src/main/java/elohhim/aoc/solver/",
-                "output": "/assets/solutions/java/" 
+                "output": "/assets/solutions/java/"
               },
               {
                 "glob": "*/!(__init__).py",
                 "input": "../python/aoc/",
-                "output": "/assets/solutions/python/" 
+                "output": "/assets/solutions/python/"
               }
             ],
             "styles": [
@@ -138,9 +138,21 @@
               }
             ]
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
   },
-  "defaultProject": "viewer"
+  "defaultProject": "viewer",
+  "cli": {
+    "defaultCollection": "@angular-eslint/schematics"
+  }
 }
