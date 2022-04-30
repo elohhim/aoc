@@ -9,6 +9,6 @@ export class GitHubLinkPipe implements PipeTransform {
   constructor(private linkService: LinkService) {}
 
   transform(file: FileMetaData): string {
-    return this.linkService.getGitHubLink2(file);
+    return this.linkService.getGitHubLink(file);
   }
 }

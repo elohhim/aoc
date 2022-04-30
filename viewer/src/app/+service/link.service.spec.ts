@@ -22,20 +22,9 @@ describe('LinkService', () => {
   });
 
   describe('getGitHubLink', () => {
-    it('should return repository link for given event key and language based on adapter', () => {
-      const eventKey: EventKey = { event: 2010, day: 10 };
-      const language: Language = 'Python';
-      const result = service.getGitHubLink(eventKey, language);
-      expect(result).toEqual(
-        'https://github.com/elohhim/aoc/blob/main/python/aoc/2010/10.py'
-      );
-    });
-  });
-
-  describe('getGitHubLink2', () => {
     it('should return repository link based on file metadata', () =>
       pureAssert(
-        service.getGitHubLink2,
+        service.getGitHubLink,
         [
           {
             repositoryPath: 'some/path/in/repo',

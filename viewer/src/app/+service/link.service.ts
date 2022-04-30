@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { EventKey } from 'src/shared/model/event-key';
 import { FileMetaData } from 'src/shared/model/file-meta-data';
-import { Language } from 'src/shared/model/language';
-import { AdapterService } from './adapter.service';
 
 // TODO: 2022-04-22 jk - TBD:
 // [ ] external systems URLs should probably be extracted to configuration
@@ -13,19 +11,11 @@ import { AdapterService } from './adapter.service';
   providedIn: 'root',
 })
 export class LinkService {
-  constructor(private adapterService: AdapterService) {}
-
   getAocLink({ event, day }: EventKey): string {
     return `https://adventofcode.com/${event}/day/${day}`;
   }
 
-  getGitHubLink(eventKey: EventKey, language: Language): string {
-    const adapter = this.adapterService.resolve(language);
-    const repoPath = adapter.getSolutionRepositoryPath(eventKey);
-    return `https://github.com/elohhim/aoc/blob/main/${repoPath}`;
-  }
-
-  getGitHubLink2({ repositoryPath }: FileMetaData): string {
+  getGitHubLink({ repositoryPath }: FileMetaData): string {
     return `https://github.com/elohhim/aoc/blob/main/${repositoryPath}`;
   }
 }
