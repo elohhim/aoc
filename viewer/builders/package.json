@@ -1,0 +1,17 @@
+{
+  "name": "@elohhim/aoc-viewer-builders",
+  "version": "1.0.0",
+  "description": "AoC Viewer app Angular CLI builders (one so far - metadata)",
+  "private": "true",
+  "builders": "builders.json",
+  "scripts": {
+    "build": "npx tsc"
+  },
+  "dependencies": {
+    "@angular-devkit/architect": "~0.1300.0",
+    "@angular-devkit/core": "^13.0.0"
+  },
+  "devDependencies": {
+    "typescript": "~4.6.2"
+  }
+}
