@@ -2,17 +2,6 @@ import { SolutionMetadataRecord } from 'src/shared/model/solution-metadata-recor
 
 export const SOLUTIONS_METADATA: SolutionMetadataRecord[] = [
   {
-    key: { event: 2015, day: 1, language: 'Python' },
-    metadata: {
-      files: [
-        {
-          repositoryPath: 'python/aoc/2015/01.py',
-          assetPath: '/assets/solutions/python/2015/01.py',
-        },
-      ],
-    },
-  },
-  {
     key: { event: 2021, day: 1, language: 'Java' },
     metadata: {
       files: [
@@ -31,6 +20,17 @@ export const SOLUTIONS_METADATA: SolutionMetadataRecord[] = [
         {
           repositoryPath: 'python/aoc/2021/01.py',
           assetPath: '/assets/solutions/python/2021/01.py',
+        },
+      ],
+    },
+  },
+  {
+    key: { event: 2015, day: 1, language: 'Python' },
+    metadata: {
+      files: [
+        {
+          repositoryPath: 'python/aoc/2015/01.py',
+          assetPath: '/assets/solutions/python/2015/01.py',
         },
       ],
     },

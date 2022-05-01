@@ -1,10 +1,16 @@
-<ul>
-  <li *ngFor="let eventKey of eventKeys">
-    <a
-      routerLink="event/{{ eventKey.event }}/day/{{ eventKey.day }}"
-      routerLinkActive="active"
-    >
-      {{ eventKey.event }} / {{ eventKey.day }}
-    </a>
-  </li>
-</ul>
+<details
+  *ngFor="let entry of keysByEvent.entries(); last as last"
+  [open]="last"
+>
+  <summary>{{ entry[0] }}</summary>
+  <ul>
+    <li *ngFor="let eventKey of entry[1]">
+      <a
+        routerLink="event/{{ eventKey.event }}/day/{{ eventKey.day }}"
+        routerLinkActive="active"
+      >
+        {{ eventKey.event }} / {{ eventKey.day }}
+      </a>
+    </li>
+  </ul>
+</details>

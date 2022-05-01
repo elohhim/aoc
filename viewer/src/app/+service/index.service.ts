@@ -22,8 +22,15 @@ export class IndexService {
   }
 
   getEventKeys(): EventKey[] {
-    // TODO: 2022-04-23 jk - I don't like lack of typing here
-    return SOLUTIONS_METADATA.map((record) => record.key);
+    const keys: EventKey[] = [];
+    for (let [event, eventIndex] of this.index.entries()) {
+      for (let day of eventIndex.keys()) {
+        keys.push({ event, day });
+      }
+    }
+    return keys.sort((k1, k2) =>
+      k1.event !== k2.event ? k1.event - k2.event : k1.day - k2.day
+    );
   }
 
   getSolutionLanguages({ event, day }: EventKey): Language[] {
