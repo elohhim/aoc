@@ -29,7 +29,7 @@ describe('IndexService', () => {
   describe('getSolutionLanguages', () => {
     unroll(
       'should return valid languages for given event key',
-      () => service.getSolutionLanguages,
+      () => service.getSolutionLanguages.bind(service),
       [
         {
           args: [{ event: 2015, day: 1 }],
@@ -60,7 +60,7 @@ describe('IndexService', () => {
   describe('isValidEventKey', () => {
     unroll(
       'should tell if event key present in data',
-      () => service.isValidEventKey,
+      () => service.isValidEventKey.bind(service),
       [
         {
           args: [{ event: 2015, day: 1 }],
@@ -81,7 +81,7 @@ describe('IndexService', () => {
   describe('isValidSolutionKey', () => {
     unroll(
       'should tell if event key present in data',
-      () => service.isValidSolutionKey,
+      () => service.isValidSolutionKey.bind(service),
       [
         {
           args: [{ event: 2015, day: 1, language: 'Python' }],

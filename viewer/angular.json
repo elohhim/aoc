@@ -69,10 +69,6 @@
             ],
             "fileReplacements": [
               {
-                "replace": "src/data/data.ts",
-                "with": "tmp/generated/data.ts"
-              },
-              {
                 "replace": "src/data/metadata.ts",
                 "with": "tmp/generated/metadata.ts"
               }
@@ -146,8 +142,8 @@
             "scripts": [],
             "fileReplacements": [
               {
-                "replace": "src/data/data.ts",
-                "with": "src/data/data.test.ts"
+                "replace": "src/data/metadata.ts",
+                "with": "src/data/metadata.test.ts"
               }
             ]
           }
