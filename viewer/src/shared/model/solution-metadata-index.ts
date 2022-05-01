@@ -1,13 +1,13 @@
 import { Language } from './language';
-import { SolutionMetaData } from './solution-meta-data';
+import { SolutionMetadata } from './solution-metadata';
 
 /**
  * Leverage TS type system for generated meta data validation
  */
-export interface SolutionMetaDataIndex {
+export interface SolutionMetadataIndex {
   [event: number]: {
     [day: number]: {
-      [language in Language]?: SolutionMetaData;
+      [language in Language]?: SolutionMetadata;
     };
   };
 }

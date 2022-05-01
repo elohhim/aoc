@@ -2,8 +2,23 @@
   "$schema": "http://json-schema.org/schema",
   "type": "object",
   "properties": {
-    "output": {
+    "repositoryRoot": {
       "type": "string"
+    },
+    "outputDir": {
+      "type": "string"
+    },
+    "events": {
+      "type": "object",
+      "properties": {
+        "first": {
+          "type": "number",
+          "minimum": 2015
+        },
+        "last": {
+          "type": "number"
+        }
+      }
     }
   }
 }

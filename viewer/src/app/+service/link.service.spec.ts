@@ -1,6 +1,5 @@
 import { TestBed } from '@angular/core/testing';
 import { EventKey } from 'src/shared/model/event-key';
-import { Language } from 'src/shared/model/language';
 import { pureAssert } from 'src/spec-utils';
 import { LinkService } from './link.service';
 

@@ -5,13 +5,17 @@
   "private": "true",
   "builders": "builders.json",
   "scripts": {
-    "build": "npx tsc"
+    "build": "tsc",
+    "test": "jest --watchAll"
   },
   "dependencies": {
     "@angular-devkit/architect": "~0.1300.0",
     "@angular-devkit/core": "^13.0.0"
   },
   "devDependencies": {
+    "@types/jest": "^27.4.1",
+    "jest": "^27.5.1",
+    "ts-jest": "^27.1.4",
     "typescript": "~4.6.2"
   }
 }

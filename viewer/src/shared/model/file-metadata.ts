@@ -1,6 +1,6 @@
 import { AssetPath } from './asset-path';
 
-export interface FileMetaData {
+export interface FileMetadata {
   repositoryPath: string;
   assetPath: AssetPath;
 }

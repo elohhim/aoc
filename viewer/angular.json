@@ -22,7 +22,12 @@
         "generate-aoc-metadata": {
           "builder": "./builders:generate-aoc-metadata",
           "options": {
-            "outputDir": "tmp/generated"
+            "outputDir": "tmp/generated",
+            "repositoryRoot": "./..",
+            "events": {
+              "first": 2015,
+              "last": 2021
+            }
           }
         },
         "build": {
@@ -40,14 +45,14 @@
               "src/assets",
               "src/manifest.webmanifest",
               {
-                "glob": "y*/d*/*Solver.java",
-                "input": "../java/src/main/java/elohhim/aoc/solver/",
-                "output": "/assets/solutions/java/"
+                "glob": "java/src/main/java/elohhim/aoc/solver/y*/d*/*Solver.java",
+                "input": "../",
+                "output": "/assets/solutions/"
               },
               {
-                "glob": "*/!(__init__).py",
-                "input": "../python/aoc/",
-                "output": "/assets/solutions/python/"
+                "glob": "python/aoc/*/!(__init__).py",
+                "input": "../",
+                "output": "/assets/solutions/"
               }
             ],
             "styles": [
@@ -66,6 +71,10 @@
               {
                 "replace": "src/data/data.ts",
                 "with": "tmp/generated/data.ts"
+              },
+              {
+                "replace": "src/data/metadata.ts",
+                "with": "tmp/generated/metadata.ts"
               }
             ]
           },

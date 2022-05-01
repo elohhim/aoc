@@ -1,6 +1,6 @@
-import { SolutionMetaDataIndex } from 'src/shared/model/solution-meta-data-index';
+import { SolutionMetadataIndex } from 'src/shared/model/solution-metadata-index';
 
-export const SOLUTIONS_DATA: SolutionMetaDataIndex = {
+export const SOLUTIONS_DATA: SolutionMetadataIndex = {
   2015: {
     1: {
       Python: {

@@ -1,4 +1,4 @@
-import { FileMetaData } from 'src/shared/model/file-meta-data';
+import { FileMetadata } from 'src/shared/model/file-metadata';
 import { FileNamePipe } from './file-name.pipe';
 
 describe('FileNamePipe', () => {
@@ -11,7 +11,7 @@ describe('FileNamePipe', () => {
     const pipe = new FileNamePipe();
 
     it('should return last segment of file path', () => {
-      const file: FileMetaData = {
+      const file: FileMetadata = {
         repositoryPath: 'some/long/path/to/file.py',
         assetPath: '/assets/solutions/',
       };

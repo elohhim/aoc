@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { EventKey } from 'src/shared/model/event-key';
-import { FileMetaData } from 'src/shared/model/file-meta-data';
+import { FileMetadata } from 'src/shared/model/file-metadata';
 
 // TODO: 2022-04-22 jk - TBD:
 // [ ] external systems URLs should probably be extracted to configuration
@@ -15,7 +15,7 @@ export class LinkService {
     return `https://adventofcode.com/${event}/day/${day}`;
   }
 
-  getGitHubLink({ repositoryPath }: FileMetaData): string {
+  getGitHubLink({ repositoryPath }: FileMetadata): string {
     return `https://github.com/elohhim/aoc/blob/main/${repositoryPath}`;
   }
 }

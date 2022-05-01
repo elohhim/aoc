@@ -1,7 +1,7 @@
 {
   "builders": {
     "generate-aoc-metadata": {
-      "implementation": "./dist/generate-aoc-metadata.js",
+      "implementation": "./dist/builders/src/generate-aoc-metadata.js",
       "schema": "./src/schema.json",
       "description": "Analyzes aoc repository files and generates solutions metadata for viewer application."
     }

@@ -3,7 +3,7 @@ import { JavaAdapter } from './java.adapter';
 import { PythonAdapter } from './python.adapter';
 
 // To add support for new programming language add it here
-const LANGUAGES = ['Python', 'Java'] as const;
+export const LANGUAGES = ['Python', 'Java'] as const;
 
 type Language = typeof LANGUAGES[number];
 

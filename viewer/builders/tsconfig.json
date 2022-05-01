@@ -102,6 +102,6 @@
     "./src",
     "./builders.json",
     "./package.json",
-    "./schema.json"
+    "../src/shared"
   ]
 }

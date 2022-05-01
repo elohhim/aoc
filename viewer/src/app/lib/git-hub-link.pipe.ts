@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { FileMetaData } from 'src/shared/model/file-meta-data';
+import { FileMetadata } from 'src/shared/model/file-metadata';
 import { LinkService } from '../+service/link.service';
 
 @Pipe({
@@ -8,7 +8,7 @@ import { LinkService } from '../+service/link.service';
 export class GitHubLinkPipe implements PipeTransform {
   constructor(private linkService: LinkService) {}
 
-  transform(file: FileMetaData): string {
+  transform(file: FileMetadata): string {
     return this.linkService.getGitHubLink(file);
   }
 }
