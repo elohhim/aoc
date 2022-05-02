@@ -30,12 +30,25 @@
 }
 
 aside {
-  width: 180px;
+  width: 196px;
+  min-width: 196px;
   padding: 8px;
 
   .logo {
     width: 128px;
     height: 128px;
     margin: 9px;
+  }
+}
+
+main {
+  padding: 0 16px;
+
+  .content {
+    width: 1024px;
+    min-width: 128px;
+    resize: horizontal;
+    overflow: hidden;
+    padding-bottom: 16px;
   }
 }
