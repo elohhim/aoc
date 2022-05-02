@@ -10,15 +10,17 @@ import { IndexService } from '../../+service/index.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EventSelectorComponent implements OnInit {
-  eventKeys: EventKey[] = [];
-  readonly keysByEvent: Map<number, EventKey[]> = new Map();
+  keysByEvent: [number, EventKey[]][] = [];
 
   constructor(private indexService: IndexService) {}
 
   ngOnInit(): void {
-    this.eventKeys = this.indexService.getEventKeys();
-    for (let key of this.eventKeys) {
-      getOrCompute(this.keysByEvent, key.event, () => []).push(key);
+    const keysByEventMap: Map<number, EventKey[]> = new Map();
+    for (let key of this.indexService.getEventKeys()) {
+      getOrCompute(keysByEventMap, key.event, () => []).push(key);
     }
+    this.keysByEvent = [...keysByEventMap.entries()].sort(
+      ([e1], [e2]) => e2 - e1
+    );
   }
 }

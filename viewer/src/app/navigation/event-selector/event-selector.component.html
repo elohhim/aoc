@@ -1,7 +1,4 @@
-<details
-  *ngFor="let entry of keysByEvent.entries(); last as last"
-  [open]="last"
->
+<details *ngFor="let entry of keysByEvent; first as first" [open]="first">
   <summary>{{ entry[0] }}</summary>
   <ul>
     <li *ngFor="let eventKey of entry[1]">

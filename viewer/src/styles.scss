@@ -57,6 +57,10 @@ hr {
   border-color: var(--green-dark);
 }
 
+summary {
+  cursor: pointer;
+}
+
 * {
   box-sizing: border-box;
 }

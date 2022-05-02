@@ -45,6 +45,11 @@
               "src/assets",
               "src/manifest.webmanifest",
               {
+                "glob": "README.md",
+                "input": "",
+                "output": "/assets/"
+              },
+              {
                 "glob": "java/src/main/java/elohhim/aoc/solver/y*/d*/*Solver.java",
                 "input": "../",
                 "output": "/assets/solutions/"
