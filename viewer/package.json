@@ -9,7 +9,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
-    "predeploy": "ng run viewer:generate-aoc-metadata && ng build --base-href=/aoc/",
+    "predeploy": "ng run viewer:generate-aoc-metadata && ng build",
     "deploy": "gh-pages -d dist/viewer"
   },
   "private": true,

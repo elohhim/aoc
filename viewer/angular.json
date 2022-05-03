@@ -44,6 +44,7 @@
               "src/icon.svg",
               "src/assets",
               "src/manifest.webmanifest",
+              "src/CNAME",
               {
                 "glob": "README.md",
                 "input": "",
