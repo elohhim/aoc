@@ -6,7 +6,7 @@ This is simple web app for viewing [my](https://site.jankumor.pl) solutions for
 [Advent of Code](https://adventofcode.com) puzzles.
 
 The app resides in [one repository](https://github.com/elohhim/aoc) along with the
-solutions in and is build based on repository content.
+solutions and is build based on repository content.
 
 ## Why ?
 
@@ -45,6 +45,10 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-### Running end-to-end tests
+<!-- ### Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities. -->
+
+### Publishing to GitHub pages
+
+Run `npm run deploy` to build production optimized version of an app (includes metadata generation in a predeploy step) and deploy it to GitHub pages.

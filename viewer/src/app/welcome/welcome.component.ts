@@ -19,7 +19,6 @@ export class WelcomeComponent implements OnInit {
         responseType: 'text',
       })
       .pipe(
-        tap((value) => console.debug(value)),
         map((readme) => {
           const lastLine = readme.indexOf('## Development');
           return readme.slice(0, lastLine);

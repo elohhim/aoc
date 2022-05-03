@@ -72,7 +72,7 @@ export const SOLUTIONS_METADATA: SolutionMetadataRecord[] = ${JSON.stringify(
         metadata: {
           files: [
             {
-              assetPath: `/assets/solutions/${repositoryPath}`,
+              assetPath: `assets/solutions/${repositoryPath}`,
               repositoryPath,
             },
           ],
