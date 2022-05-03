@@ -17,14 +17,14 @@ it is always hard to come up with an idea for side project I took inspiration
 from my work, where I recently took part in somehow similar project (it included
 serving and rendering markdown files in Angular). I decided it will be a good
 opportunity to consolidate gained knowledge and also gain better expertise about
-some topics that I only barely touched.
+some topics that I only barely touched previously (e.g. custom Angular CLI builders).
 
-I hope this explains (even if just a little) the technology choice (Angular) that
+I hope this explains (even if just a little) choice of the technology (Angular), that
 usually would not be the first that comes into mind for such use case.
 
 ## How ?
 
-Built thanks to [Angular](https://angular.io/) and [ngx-markdown](https://github.com/jfcere/ngx-markdown) ❤️
+Built thanks to [Angular](https://angular.io/), [Marked](http://marked.js.org/), [Prism.js](http://prismjs.com/) and [ngx-markdown](https://github.com/jfcere/ngx-markdown) ❤️
 
 Site look is ~a ripoff of~ heavily inspired by original AoC. I hope [Eric Wastl](http://was.tl)
 won't mind and will took it as a tribute to his awesome work.
