@@ -6,7 +6,7 @@ This is simple web app for viewing [my](https://site.jankumor.pl) solutions for
 [Advent of Code](https://adventofcode.com) puzzles.
 
 The app resides in [one repository](https://github.com/elohhim/aoc) along with the
-solutions in and is build based on repository content.
+solutions and is build based on repository content.
 
 ## Why ?
 
