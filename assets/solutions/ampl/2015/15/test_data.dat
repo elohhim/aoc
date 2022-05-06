@@ -1,0 +1,13 @@
+set INGREDIENTS := Butterscoth Cinnamon;
+set PROPERTIES := capacity durability flavor texture calories;
+set SCORE_PROPERTIES := capacity durability flavor texture;
+
+param ingredientProperties:
+				capacity	durability	flavor	texture	calories :=
+	Butterscoth	-1			-2			6		3		8
+	Cinnamon	2			3			-2		-1		3
+	;
+	
+param teaspoonLimit := 100;
+
+param caloriesTarget := 500;
