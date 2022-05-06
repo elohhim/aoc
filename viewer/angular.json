@@ -59,6 +59,11 @@
                 "glob": "python/aoc/*/!(__init__).py",
                 "input": "../",
                 "output": "/assets/solutions/"
+              },
+              {
+                "glob": "ampl/*/*/*",
+                "input": "../",
+                "output": "/assets/solutions/"
               }
             ],
             "styles": [

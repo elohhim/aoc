@@ -12,6 +12,7 @@ import { EventKey } from '../../src/shared/model/event-key';
 import { SolutionKey } from '../../src/shared/model/solution-key';
 import * as fs from 'fs';
 import { SolutionMetadataRecord } from '../../src/shared/model/solution-metadata-record';
+import { FileMetadata } from '../../src/shared/model/file-metadata';
 
 interface Options extends JsonObject {
   repositoryRoot: string;
@@ -29,7 +30,6 @@ async function generateAocMetadata(
   context: BuilderContext
 ): Promise<BuilderOutput> {
   context.reportStatus('Generating metadata');
-  context.logger.info(`Options:\n${JSON.stringify(options, undefined, 2)}`);
   const keys = [...eventKeys(options.events)];
   const records = keys.flatMap(processEventKey);
 
@@ -66,21 +66,57 @@ export const SOLUTIONS_METADATA: SolutionMetadataRecord[] = ${JSON.stringify(
     const repositoryPath = adapter.getSolutionRepositoryPath(key);
     const path = `${options.repositoryRoot}/${repositoryPath}`;
     if (fs.existsSync(path)) {
-      // TODO: 2022-05-01 jk - multifile adapters
-      return {
-        key,
-        metadata: {
-          files: [
-            {
-              assetPath: `assets/solutions/${repositoryPath}`,
-              repositoryPath,
-            },
-          ],
-        },
-      };
+      return adapter.multiFile && fs.lstatSync(path).isDirectory()
+        ? buildMultiFileRecord(key, path, repositoryPath)
+        : buildSingleFileRecord(key, repositoryPath);
     }
     return undefined;
   }
+}
+
+function buildMultiFileRecord(
+  key: SolutionKey,
+  dirPath: string,
+  dirRepositoryPath: string
+): SolutionMetadataRecord {
+  const files: FileMetadata[] = fs
+    .readdirSync(dirPath)
+    .filter((child) => fs.lstatSync(`${dirPath}/${child}`).isFile())
+    .map((child) => `${dirRepositoryPath}/${child}`)
+    .map((filePath) => ({
+      assetPath: `assets/solutions/${filePath}`,
+      repositoryPath: filePath,
+    }));
+  return buildRecord(key, files);
+}
+
+function buildSingleFileRecord(
+  key: SolutionKey,
+  repositoryPath: string
+): SolutionMetadataRecord {
+  return {
+    key,
+    metadata: {
+      files: [
+        {
+          assetPath: `assets/solutions/${repositoryPath}`,
+          repositoryPath,
+        },
+      ],
+    },
+  };
+}
+
+function buildRecord(
+  key: SolutionKey,
+  files: FileMetadata[]
+): SolutionMetadataRecord {
+  return {
+    key,
+    metadata: {
+      files,
+    },
+  };
 }
 
 export function* eventKeys({
