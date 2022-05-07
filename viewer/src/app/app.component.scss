@@ -38,6 +38,11 @@ aside {
     width: 128px;
     height: 128px;
     margin: 9px;
+    transition: transform ease-out 200ms;
+
+    &:hover {
+      transform: translateY(4px) rotate(4deg);
+    }
   }
 }
 
