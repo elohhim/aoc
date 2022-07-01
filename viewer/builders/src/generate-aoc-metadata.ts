@@ -127,7 +127,7 @@ export function* eventKeys({
   last: number;
 }): Generator<EventKey, void, void> {
   for (let event = first; event <= last; event++) {
-    for (let day = 1; day <= 20; day++) {
+    for (let day = 1; day <= 25; day++) {
       yield { event, day };
     }
   }
