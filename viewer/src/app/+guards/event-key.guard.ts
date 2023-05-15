@@ -1,32 +1,15 @@
-import { Injectable } from '@angular/core';
-import {
-  ActivatedRouteSnapshot,
-  CanActivate,
-  RouterStateSnapshot,
-  UrlTree,
-} from '@angular/router';
-import { Observable } from 'rxjs';
+import { inject } from '@angular/core';
+import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { IndexService } from '../+service/index.service';
 import { ParamsResolveService } from '../+service/params-resolve.service';
 
-@Injectable({
-  providedIn: 'root',
-})
-export class EventKeyGuard implements CanActivate {
-  constructor(
-    private indexService: IndexService,
-    private paramsResolveService: ParamsResolveService
-  ) {}
+export const eventKeyGuard = (
+  route: ActivatedRouteSnapshot,
+  state: RouterStateSnapshot
+) => {
+  const indexService = inject(IndexService);
+  const paramsResolveService = inject(ParamsResolveService);
 
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ):
-    | Observable<boolean | UrlTree>
-    | Promise<boolean | UrlTree>
-    | boolean
-    | UrlTree {
-    const eventKey = this.paramsResolveService.resolveEventKey(route.params);
-    return this.indexService.isValidEventKey(eventKey);
-  }
-}
+  const eventKey = paramsResolveService.resolveEventKey(route.params);
+  return indexService.isValidEventKey(eventKey);
+};

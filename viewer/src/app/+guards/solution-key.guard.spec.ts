@@ -1,16 +1,14 @@
 import { TestBed } from '@angular/core/testing';
 
-import { SolutionKeyGuard } from './solution-key.guard';
+import { solutionKeyGuard } from './solution-key.guard';
 
-describe('SolutionKeyGuard', () => {
-  let guard: SolutionKeyGuard;
-
+describe('solutionKeyGuard', () => {
+  
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    guard = TestBed.inject(SolutionKeyGuard);
   });
 
   it('should be created', () => {
-    expect(guard).toBeTruthy();
+    expect(solutionKeyGuard).toBeTruthy();
   });
 });

@@ -1,30 +1,16 @@
-import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, UrlTree } from '@angular/router';
-import { Observable } from 'rxjs';
+import { inject } from '@angular/core';
+import { ActivatedRouteSnapshot } from '@angular/router';
 import { SolutionKey } from 'src/shared/model/solution-key';
 import { IndexService } from '../+service/index.service';
 import { ParamsResolveService } from '../+service/params-resolve.service';
 
-@Injectable({
-  providedIn: 'root',
-})
-export class SolutionKeyGuard implements CanActivate {
-  constructor(
-    private indexService: IndexService,
-    private paramsResolveService: ParamsResolveService
-  ) {}
+export const solutionKeyGuard = (route: ActivatedRouteSnapshot) => {
+  const indexService = inject(IndexService);
+  const paramsResolveService = inject(ParamsResolveService);
 
-  canActivate(
-    route: ActivatedRouteSnapshot
-  ):
-    | Observable<boolean | UrlTree>
-    | Promise<boolean | UrlTree>
-    | boolean
-    | UrlTree {
-    const solutionKey: SolutionKey = {
-      ...this.paramsResolveService.resolveEventKey(route.params),
-      language: this.paramsResolveService.resolveLanguage(route.params),
-    };
-    return this.indexService.isValidSolutionKey(solutionKey);
-  }
-}
+  const solutionKey: SolutionKey = {
+    ...paramsResolveService.resolveEventKey(route.params),
+    language: paramsResolveService.resolveLanguage(route.params),
+  };
+  return indexService.isValidSolutionKey(solutionKey);
+};
