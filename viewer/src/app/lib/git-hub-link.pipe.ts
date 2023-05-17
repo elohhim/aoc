@@ -3,7 +3,8 @@ import { FileMetadata } from 'src/shared/model/file-metadata';
 import { LinkService } from '../+service/link.service';
 
 @Pipe({
-  name: 'gitHubLink',
+    name: 'gitHubLink',
+    standalone: true,
 })
 export class GitHubLinkPipe implements PipeTransform {
   constructor(private linkService: LinkService) {}

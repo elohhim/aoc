@@ -1,12 +1,20 @@
+import { AsyncPipe, NgIf } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
-import { map, Observable, tap } from 'rxjs';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { MarkdownModule } from 'ngx-markdown';
+import { Observable, map } from 'rxjs';
 
 @Component({
   selector: 'app-welcome',
   templateUrl: './welcome.component.html',
   styleUrls: ['./welcome.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [
+    AsyncPipe,
+    MarkdownModule,
+    NgIf,
+  ],
 })
 export class WelcomeComponent implements OnInit {
   data$: Observable<string>;

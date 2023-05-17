@@ -12,17 +12,16 @@ describe('SolutionsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RouterTestingModule],
-      declarations: [SolutionsComponent, AocLinkPipe, SolutionLanguagesPipe],
-      providers: [
+    imports: [RouterTestingModule, SolutionsComponent, AocLinkPipe, SolutionLanguagesPipe],
+    providers: [
         {
-          provide: EventKeyProviderComponent,
-          useValue: {
-            eventKey$: of({ event: 2015, day: 1 }),
-          } as Partial<EventKeyProviderComponent>,
+            provide: EventKeyProviderComponent,
+            useValue: {
+                eventKey$: of({ event: 2015, day: 1 }),
+            } as Partial<EventKeyProviderComponent>,
         },
-      ],
-    }).compileComponents();
+    ],
+}).compileComponents();
   });
 
   beforeEach(() => {

@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { distinctUntilChanged, map, Observable } from 'rxjs';
+import { ActivatedRoute, RouterOutlet } from '@angular/router';
+import { Observable, distinctUntilChanged, map } from 'rxjs';
 import { ParamsResolveService } from 'src/app/+service/params-resolve.service';
 import { EventKey } from 'src/shared/model/event-key';
 
@@ -9,6 +9,8 @@ import { EventKey } from 'src/shared/model/event-key';
   templateUrl: './event-key-provider.component.html',
   styleUrls: ['./event-key-provider.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [RouterOutlet],
 })
 export class EventKeyProviderComponent {
   readonly eventKey$: Observable<EventKey> = this.activatedRoute.params.pipe(

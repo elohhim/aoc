@@ -18,19 +18,18 @@ describe('EventKeyProviderComponent', () => {
       }),
     };
     await TestBed.configureTestingModule({
-      declarations: [EventKeyProviderComponent],
-      imports: [RouterTestingModule],
-      providers: [
+    imports: [RouterTestingModule, EventKeyProviderComponent],
+    providers: [
         {
-          provide: ActivatedRoute,
-          useValue: fakeActivatedRoute,
+            provide: ActivatedRoute,
+            useValue: fakeActivatedRoute,
         },
         {
-          provide: ParamsResolveService,
-          useValue: {} as Partial<ParamsResolveService>,
+            provide: ParamsResolveService,
+            useValue: {} as Partial<ParamsResolveService>,
         },
-      ],
-    }).compileComponents();
+    ],
+}).compileComponents();
   });
 
   beforeEach(() => {

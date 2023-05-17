@@ -1,7 +1,8 @@
 import { Directive, HostBinding } from '@angular/core';
 
 @Directive({
-  selector: 'a[appExternalLink]',
+    selector: 'a[appExternalLink]',
+    standalone: true,
 })
 export class ExternalLinkDirective {
   @HostBinding('attr.target') targetAttr = '_blank';

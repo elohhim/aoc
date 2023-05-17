@@ -17,24 +17,24 @@ describe('SolutionKeyProviderComponent', () => {
       }),
     };
     await TestBed.configureTestingModule({
-      declarations: [SolutionKeyProviderComponent],
-      providers: [
+    imports: [SolutionKeyProviderComponent],
+    providers: [
         {
-          provide: ActivatedRoute,
-          useValue: fakeActivatedRoute,
+            provide: ActivatedRoute,
+            useValue: fakeActivatedRoute,
         },
         {
-          provide: ParamsResolveService,
-          useValue: {} as Partial<ParamsResolveService>,
+            provide: ParamsResolveService,
+            useValue: {} as Partial<ParamsResolveService>,
         },
         {
-          provide: EventKeyProviderComponent,
-          useValue: {
-            eventKey$: of({ event: 2015, day: 1 }),
-          } as Partial<EventKeyProviderComponent>,
+            provide: EventKeyProviderComponent,
+            useValue: {
+                eventKey$: of({ event: 2015, day: 1 }),
+            } as Partial<EventKeyProviderComponent>,
         },
-      ],
-    }).compileComponents();
+    ],
+}).compileComponents();
   });
 
   beforeEach(() => {

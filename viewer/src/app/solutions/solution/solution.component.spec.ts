@@ -11,16 +11,16 @@ describe('SolutionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [SolutionComponent, GitHubLinkPipe, FileNamePipe],
-      providers: [
+    imports: [SolutionComponent, GitHubLinkPipe, FileNamePipe,],
+    providers: [
         {
-          provide: SolutionKeyProviderComponent,
-          useValue: {
-            solutionKey$: of({ event: 2015, day: 1, language: 'Python' }),
-          } as Partial<SolutionKeyProviderComponent>,
+            provide: SolutionKeyProviderComponent,
+            useValue: {
+                solutionKey$: of({ event: 2015, day: 1, language: 'Python' }),
+            } as Partial<SolutionKeyProviderComponent>,
         },
-      ],
-    }).compileComponents();
+    ],
+}).compileComponents();
   });
 
   beforeEach(() => {

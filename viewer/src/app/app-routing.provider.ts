@@ -1,5 +1,9 @@
-import { NgModule } from '@angular/core';
-import { ExtraOptions, RouterModule, Routes } from '@angular/router';
+import {
+  ExtraOptions,
+  Routes,
+  provideRouter,
+  withRouterConfig,
+} from '@angular/router';
 import { eventKeyGuard } from './+guards/event-key.guard';
 import { solutionKeyGuard } from './+guards/solution-key.guard';
 import { EventKeyProviderComponent } from './solutions/event-key-provider/event-key-provider.component';
@@ -43,8 +47,6 @@ const config: ExtraOptions = {
   paramsInheritanceStrategy: 'always',
 };
 
-@NgModule({
-  imports: [RouterModule.forRoot(routes, config)],
-  exports: [RouterModule],
-})
-export class AppRoutingModule {}
+export function provideAppRouter() {
+  return provideRouter(routes, withRouterConfig(config));
+}

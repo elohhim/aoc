@@ -5,6 +5,7 @@ import { IndexService } from '../../+service/index.service';
 
 @Pipe({
   name: 'solutionLanguages',
+  standalone: true,
 })
 export class SolutionLanguagesPipe implements PipeTransform {
   constructor(private indexService: IndexService) {}
