@@ -28,7 +28,10 @@ def test(fun: Callable[[str], Any],
         try:
             assert expected == str(result)
         except AssertionError:
-            print(f'For: {data} expected: {expected} got: {result}')
+            print(f'''For:
+{data}
+expected: {expected}
+got: {result}''')
             exit(1)
 
 
