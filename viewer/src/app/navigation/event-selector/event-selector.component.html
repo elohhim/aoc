@@ -1,5 +1,5 @@
 <details *ngFor="let entry of keysByEvent; first as first" [open]="first">
-  <summary>{{ entry[0] }}</summary>
+  <summary>{{ entry[0] }} <span class="quiet">[ {{ entry[1].length}} / 25 ]</span></summary>
   <ul>
     <li *ngFor="let eventKey of entry[1]">
       <a
