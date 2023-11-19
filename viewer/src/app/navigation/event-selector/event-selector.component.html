@@ -1,7 +1,11 @@
-<details *ngFor="let entry of keysByEvent; first as first" [open]="first">
-  <summary>{{ entry[0] }} <span class="quiet">[ {{ entry[1].length}} / 25 ]</span></summary>
+@for (entry of keysByEvent; track entry; let first = $first) {
+<details [open]="first">
+  <summary>
+    {{ entry[0] }} <span class="quiet">[ {{ entry[1].length }} / 25 ]</span>
+  </summary>
   <ul>
-    <li *ngFor="let eventKey of entry[1]">
+    @for (eventKey of entry[1]; track eventKey) {
+    <li>
       <a
         routerLink="event/{{ eventKey.event }}/day/{{ eventKey.day }}"
         routerLinkActive="active"
@@ -9,5 +13,7 @@
         {{ eventKey.event }} / {{ eventKey.day }}
       </a>
     </li>
+    }
   </ul>
 </details>
+}

@@ -1,4 +1,4 @@
-import { AsyncPipe, NgFor, NgIf } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { MarkdownModule } from 'ngx-markdown';
@@ -20,8 +20,6 @@ import { SolutionLanguagesPipe } from './solution-languages.pipe';
     AsyncPipe,
     ExternalLinkDirective,
     MarkdownModule,
-    NgFor,
-    NgIf,
     RouterLink,
     RouterLinkActive,
     RouterOutlet,

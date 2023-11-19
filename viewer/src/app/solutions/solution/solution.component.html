@@ -1,13 +1,17 @@
-<article *ngIf="solutionKey$ | async as key">
+@if (solutionKey$ | async; as key) {
+<article>
   <h2>{{ key.language }} solution</h2>
-  <ng-container *ngFor="let file of files$ | async">
-    <details open>
-      <summary>
-        {{ file | fileName }}
-        <a appExternalLink [href]="file | gitHubLink"> see on GitHub </a>
-      </summary>
-      <markdown [src]="file.assetPath" lineNumbers></markdown>
-    </details>
-    <hr />
-  </ng-container>
+  @for (file of files$ | async; track file) {
+
+  <details open>
+    <summary>
+      {{ file | fileName }}
+      <a appExternalLink [href]="file | gitHubLink"> see on GitHub </a>
+    </summary>
+    <markdown [src]="file.assetPath" lineNumbers />
+  </details>
+  <hr />
+
+  }
 </article>
+}

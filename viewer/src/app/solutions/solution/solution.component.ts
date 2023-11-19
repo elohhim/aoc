@@ -1,4 +1,4 @@
-import { AsyncPipe, NgFor, NgIf } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { MarkdownModule } from 'ngx-markdown';
 import { Observable, map } from 'rxjs';
@@ -22,8 +22,6 @@ import { SolutionKeyProviderComponent } from '../solution-key-provider/solution-
     FileNamePipe,
     GitHubLinkPipe,
     MarkdownModule,
-    NgFor,
-    NgIf,
   ],
 })
 export class SolutionComponent {

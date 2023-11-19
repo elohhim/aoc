@@ -1,4 +1,3 @@
-import { NgFor } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { getOrCompute } from 'src/app/lib/get-or-compute';
@@ -12,9 +11,8 @@ import { IndexService } from '../../+service/index.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [
-    NgFor,
     RouterLinkActive,
-    RouterLink
+    RouterLink,
   ],
 })
 export class EventSelectorComponent implements OnInit {

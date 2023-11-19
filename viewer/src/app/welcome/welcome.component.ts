@@ -1,4 +1,4 @@
-import { AsyncPipe, NgIf } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { MarkdownModule } from 'ngx-markdown';
@@ -13,7 +13,6 @@ import { Observable, map } from 'rxjs';
   imports: [
     AsyncPipe,
     MarkdownModule,
-    NgIf,
   ],
 })
 export class WelcomeComponent implements OnInit {
