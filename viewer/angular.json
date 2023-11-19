@@ -72,7 +72,6 @@
               "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.css"
             ],
             "scripts": [
-              "node_modules/marked/marked.min.js",
               "node_modules/prismjs/prism.js",
               "node_modules/prismjs/components/prism-java.js",
               "node_modules/prismjs/components/prism-python.js",
@@ -126,10 +125,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "viewer:build:production"
+              "buildTarget": "viewer:build:production"
             },
             "development": {
-              "browserTarget": "viewer:build:development"
+              "buildTarget": "viewer:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -137,7 +136,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "viewer:build"
+            "buildTarget": "viewer:build"
           }
         },
         "test": {

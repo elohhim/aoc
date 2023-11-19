@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { importProvidersFrom } from '@angular/core';
-import { MarkdownModule, MarkedOptions, MarkedRenderer } from 'ngx-markdown';
+import { MarkdownModule, MarkedOptions, MARKED_OPTIONS, MarkedRenderer } from 'ngx-markdown';
 
 // function that returns `MarkedOptions` with renderer override
 function markedOptionsFactory(): MarkedOptions {
@@ -20,8 +20,6 @@ function markedOptionsFactory(): MarkedOptions {
     gfm: true,
     breaks: false,
     pedantic: false,
-    smartLists: true,
-    smartypants: false,
   };
 }
 
@@ -30,7 +28,7 @@ export function provideAppMarkdown() {
     MarkdownModule.forRoot({
       loader: HttpClient,
       markedOptions: {
-        provide: MarkedOptions,
+        provide: MARKED_OPTIONS,
         useFactory: markedOptionsFactory,
       },
     })
