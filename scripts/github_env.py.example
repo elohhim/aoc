@@ -1,0 +1,5 @@
+GITHUB_ENV = {
+    'USER': 'Your User Name Here',
+    'ACCESS_TOKEN': 'Your Access Token Here',
+    'REPO': 'Repository Name Here',
+}
