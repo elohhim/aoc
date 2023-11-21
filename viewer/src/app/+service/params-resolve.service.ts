@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Params } from '@angular/router';
-import { EventKey } from 'src/shared/model/event-key';
+import { EventKey, parseDay } from 'src/shared/model/event-key';
 import { isLanguage, Language } from 'src/shared/model/language';
 
 @Injectable({
@@ -11,10 +11,10 @@ export class ParamsResolveService {
 
   resolveEventKey(params: Params): EventKey {
     const { event, day } = params;
-    if (typeof event === 'string' && typeof day === 'string') {
+    if (typeof event === 'string' && typeof day === 'string' && parseInt(day)) {
       return {
         event: parseInt(event),
-        day: parseInt(day),
+        day: parseDay(day),
       };
     }
     throw new Error(
