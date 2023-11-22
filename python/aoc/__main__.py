@@ -13,7 +13,7 @@ def cli() -> None:
 @click.argument('day', type=int)
 def solve(year: int, day: int) -> None:
     click.echo(f'Year {year}, Day {day}')
-    module = import_module(f'{year}.{day:02d}')
+    module = import_module(f'y{year}.d{day:02d}')
     data = read_input(year, day)
 
     tc1 = read_tc(year, day, 1)
