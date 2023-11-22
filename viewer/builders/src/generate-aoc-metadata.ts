@@ -8,7 +8,7 @@ import {
   ADAPTERS,
   LANGUAGES,
 } from '../../src/shared/adapters/adapter-registry';
-import { EventKey } from '../../src/shared/model/event-key';
+import { Day, EventKey } from '../../src/shared/model/event-key';
 import { SolutionKey } from '../../src/shared/model/solution-key';
 import * as fs from 'fs';
 import { SolutionMetadataRecord } from '../../src/shared/model/solution-metadata-record';
@@ -128,7 +128,7 @@ export function* eventKeys({
 }): Generator<EventKey, void, void> {
   for (let event = first; event <= last; event++) {
     for (let day = 1; day <= 25; day++) {
-      yield { event, day };
+      yield { event, day: day as Day };
     }
   }
   return;

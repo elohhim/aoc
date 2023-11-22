@@ -27,7 +27,7 @@ describe('LinkService', () => {
         [
           {
             repositoryPath: 'some/path/in/repo',
-            assetPath: '/assets/solutions/',
+            assetPath: 'assets/solutions/',
           },
         ],
         'https://github.com/elohhim/aoc/blob/main/some/path/in/repo'

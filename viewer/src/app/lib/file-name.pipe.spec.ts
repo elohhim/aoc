@@ -13,7 +13,7 @@ describe('FileNamePipe', () => {
     it('should return last segment of file path', () => {
       const file: FileMetadata = {
         repositoryPath: 'some/long/path/to/file.py',
-        assetPath: '/assets/solutions/',
+        assetPath: 'assets/solutions/',
       };
       const result = pipe.transform(file);
       expect(result).toEqual('file.py');

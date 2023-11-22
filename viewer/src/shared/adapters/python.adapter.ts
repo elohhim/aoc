@@ -5,6 +5,6 @@ export const PythonAdapter: Adapter<'Python'> = {
   language: 'Python',
   multiFile: false,
   getSolutionRepositoryPath({ event, day }: EventKey): string {
-    return `python/aoc/${event}/${String(day).padStart(2, '0')}.py`;
+    return `python/aoc/y${event}/d${String(day).padStart(2, '0')}.py`;
   },
 };

@@ -51,7 +51,7 @@ describe('IndexService', () => {
       expect(result).toEqual([
         {
           repositoryPath: 'python/aoc/2015/01.py',
-          assetPath: '/assets/solutions/python/2015/01.py',
+          assetPath: 'assets/solutions/python/y2015/d01.py',
         },
       ]);
     });
