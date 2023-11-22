@@ -1,7 +1,11 @@
-from typing import List, Tuple
-from collections import namedtuple
+from typing import cast, List, NamedTuple, Tuple
 
-Range = namedtuple("Range", ["start", "end"])
+
+class Range(NamedTuple):
+    start: int
+    end: int
+
+
 RangePair = Tuple[Range, Range]
 
 
@@ -10,7 +14,10 @@ def parse_range(range: str) -> Range:
 
 
 def parse_row(row: str) -> RangePair:
-    return tuple(parse_range(range) for range in row.split(","))
+    ranges = row.split(",")
+    if len(ranges) == 2:
+        return (parse_range(ranges[0]), parse_range(ranges[1]))
+    raise ValueError(f'Malformed RangePair data: {row}')
 
 
 def parse_data(data: str) -> List[RangePair]:
