@@ -14,7 +14,8 @@
                 "solve",
                 "${input:year}",
                 "${input:day}"
-            ]
+            ],
+            "cwd": "${workspaceFolder}/java"
         },
         {
             "name": "Python AoC",
@@ -36,13 +37,13 @@
 		{
 			"id": "year",
 			"type": "promptString",
-			"default": "2015",
+			"default": "2022",
 			"description": "Year"
 		},
         {
 			"id": "day",
 			"type": "promptString",
-			"default": "18",
+			"default": "01",
 			"description": "Day"
 		}
 	]
