@@ -1,4 +1,4 @@
-from typing import cast, List, NamedTuple, Tuple
+from typing import NamedTuple
 
 
 class Range(NamedTuple):
@@ -6,7 +6,7 @@ class Range(NamedTuple):
     end: int
 
 
-RangePair = Tuple[Range, Range]
+type RangePair = tuple[Range, Range]
 
 
 def parse_range(range: str) -> Range:
@@ -17,10 +17,10 @@ def parse_row(row: str) -> RangePair:
     ranges = row.split(",")
     if len(ranges) == 2:
         return (parse_range(ranges[0]), parse_range(ranges[1]))
-    raise ValueError(f'Malformed RangePair data: {row}')
+    raise ValueError(f"Malformed RangePair data: {row}")
 
 
-def parse_data(data: str) -> List[RangePair]:
+def parse_data(data: str) -> list[RangePair]:
     return [parse_row(row) for row in data.split("\n")]
 
 

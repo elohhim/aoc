@@ -1,11 +1,7 @@
-from functools import reduce
-from typing import List, Set, Tuple
-
-
-Item = str
-Compartment = str
-Rucksack = Tuple[Compartment, Compartment]
-Group = Tuple[Rucksack, Rucksack, Rucksack]
+type Item = str
+type Compartment = str
+type Rucksack = tuple[Compartment, Compartment]
+type Group = tuple[Rucksack, Rucksack, Rucksack]
 
 
 def parse_row(row: str) -> Rucksack:
@@ -13,7 +9,7 @@ def parse_row(row: str) -> Rucksack:
     return (row[:midpoint], row[midpoint:])
 
 
-def parse_data(data: str) -> List[Rucksack]:
+def parse_data(data: str) -> list[Rucksack]:
     rows = data.split("\n")
     return [parse_row(row) for row in rows]
 
@@ -32,11 +28,11 @@ def solve_1(data: str) -> int:
     return sum(get_rucksack_priority(r) for r in rucksacks)
 
 
-def group_rucksacks(rucksacks: List[Rucksack]) -> List[Group]:
+def group_rucksacks(rucksacks: list[Rucksack]) -> list[Group]:
     return list(zip(rucksacks[:-2:3], rucksacks[1:-1:3], rucksacks[2::3]))
 
 
-def rucksack2set(rucksack: Rucksack) -> Set[Item]:
+def rucksack2set(rucksack: Rucksack) -> set[Item]:
     return set(rucksack[0] + rucksack[1])
 
 

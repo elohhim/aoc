@@ -1,38 +1,38 @@
 import re
-from typing import Callable, List, Literal, Tuple
+from typing import Callable, Literal
 from functools import reduce
 
-FORWARD = 'forward'
-UP = 'up'
-DOWN = 'down'
+
+FORWARD = "forward"
+UP = "up"
+DOWN = "down"
 DIRECTIONS = [FORWARD, UP, DOWN]
 COMMAND_PATTERN = re.compile(rf'({"|".join(DIRECTIONS)}) ([0-9])')
 
 
 Direction = Literal[FORWARD, UP, DOWN]
-Command = Tuple[Direction, int]
-Coord = Tuple[int, ...]
+Command = tuple[Direction, int]
+Coord = tuple[int, ...]
 
 
-def parse_data(data: str) -> List[Command]:
+def parse_data(data: str) -> list[Command]:
     matches = COMMAND_PATTERN.findall(data)
 
-    def match2instruction(m: Tuple[str, ...]) -> Command:
+    def match2instruction(m: tuple[str, ...]) -> Command:
         return (m[0], int(m[1]))
 
     return [match2instruction(m) for m in matches]
 
 
-def solve(data: str,
-          command_reducer: Callable[[Coord, Command], Coord],
-          initial: Coord) -> int:
+def solve(
+    data: str, command_reducer: Callable[[Coord, Command], Coord], initial: Coord
+) -> int:
     commands = parse_data(data)
     final_position = reduce(command_reducer, commands, initial)
     return final_position[0] * final_position[1]
 
 
 def solve_1(data: str) -> int:
-
     def command_reducer(coord: Coord, command: Command) -> Coord:
         horizontal, depth = coord
         dir, value = command
@@ -47,7 +47,6 @@ def solve_1(data: str) -> int:
 
 
 def solve_2(data: str) -> int:
-
     def command_reducer(coord: Coord, command: Command) -> Coord:
         horizontal, depth, aim = coord
         dir, value = command

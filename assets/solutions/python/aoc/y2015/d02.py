@@ -1,13 +1,10 @@
-from typing import List, Tuple
-
-
-def parse_dimensions(line: str) -> Tuple[int, int, int]:
-    a, b, c = sorted(int(c) for c in line.split('x'))
+def parse_dimensions(line: str) -> tuple[int, int, int]:
+    a, b, c = sorted(int(c) for c in line.split("x"))
     return a, b, c
 
 
-def parse_data(data: str) -> List[Tuple[int, int, int]]:
-    lines = [l.strip() for l in data.split('\n')]
+def parse_data(data: str) -> list[tuple[int, int, int]]:
+    lines = [l.strip() for l in data.split("\n")]
     return [parse_dimensions(l) for l in lines]
 
 

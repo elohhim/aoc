@@ -1,10 +1,8 @@
-from typing import List
-
-Inventory = List[List[int]]
+type Inventory = list[list[int]]
 
 
 def parse_data(data: str) -> Inventory:
-    return [[int(c) for c in d.split('\n')] for d in data.split('\n\n')];
+    return [[int(c) for c in d.split("\n")] for d in data.split("\n\n")]
 
 
 def sum_of_top_n_inventory(inventory: Inventory, n: int) -> int:

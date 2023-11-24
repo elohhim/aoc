@@ -1,16 +1,12 @@
-from functools import reduce
-from typing import Iterator, List, Tuple, TypeVar
+from typing import Iterator
 
 
-T = TypeVar("T")
-
-
-def window_zip(ls: List[T], window_size: int) -> Iterator[Tuple[T, ...]]:
+def window_zip[T](ls: list[T], window_size: int) -> Iterator[tuple[T, ...]]:
     return zip(*(ls[i:] for i in range(window_size)))
 
 
-def parse_data(data: str) -> List[int]:
-    return [int(d) for d in data.split('\n')]
+def parse_data(data: str) -> list[int]:
+    return [int(d) for d in data.split("\n")]
 
 
 def solve_1(data: str) -> int:

@@ -1,4 +1,3 @@
-from typing import Tuple
 from itertools import zip_longest
 
 
@@ -13,8 +12,8 @@ def look_and_say(subject: str) -> str:
     return out
 
 
-def parse_data(data: str) -> Tuple[str, int]:
-    return map(str.strip, data.split('\n'))
+def parse_data(data: str) -> tuple[str, int]:
+    return map(str.strip, data.split("\n"))
 
 
 def solve(subject, repeats):

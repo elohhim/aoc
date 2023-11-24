@@ -1,13 +1,11 @@
-
 import ast
-from typing import List
 
 
-def parse_data(data: str) -> List[str]:
-    return [l.strip() for l in data.split('\n')]
+def parse_data(data: str) -> list[str]:
+    return [l.strip() for l in data.split("\n")]
 
 
-def sum_len(ls: List[str]) -> int:
+def sum_len(ls: list[str]) -> int:
     return sum(map(len, ls))
 
 

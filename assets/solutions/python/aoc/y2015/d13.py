@@ -1,21 +1,20 @@
 import re
 from collections import defaultdict, deque
 from itertools import permutations
-from typing import Callable, Dict, Iterable, Tuple
+from typing import Callable, Iterable
 
 
-HappinessMap = Dict[str, Dict[str, int]]
+HappinessMap = dict[str, dict[str, int]]
 
 
-PATTERN = (r"^([A-Z][a-z]*) would (gain|lose) ([0-9]+) happiness units by"
-           r" sitting next to ([A-Z][a-z]*).$")
+PATTERN = (
+    r"^([A-Z][a-z]*) would (gain|lose) ([0-9]+) happiness units by"
+    r" sitting next to ([A-Z][a-z]*).$"
+)
 
 
 def parse_data(data: str, initializer: Callable = dict) -> HappinessMap:
-    coeffs = {
-        'gain': 1,
-        'lose': -1
-    }
+    coeffs = {"gain": 1, "lose": -1}
     matches = re.findall(PATTERN, data, re.MULTILINE)
     hapiness_map = defaultdict(initializer)
     for m in matches:
@@ -26,15 +25,14 @@ def parse_data(data: str, initializer: Callable = dict) -> HappinessMap:
     return hapiness_map
 
 
-def happiness(hapiness_map: HappinessMap,
-              permutation: Iterable[str]) -> int:
+def happiness(hapiness_map: HappinessMap, permutation: Iterable[str]) -> int:
     l_neighbours = deque(permutation)
     l_neighbours.rotate(1)
     r_neighbours = deque(permutation)
     r_neighbours.rotate(-1)
     triples = zip(l_neighbours, permutation, r_neighbours)
 
-    def person_happiness(t: Tuple[str, str, str]) -> int:
+    def person_happiness(t: tuple[str, str, str]) -> int:
         l, p, r = t
         return hapiness_map[p][l] + hapiness_map[p][r]
 
@@ -51,6 +49,6 @@ def solve_1(data: str) -> int:
 
 
 def solve_2(data: str) -> int:
-    happiness_map = parse_data(data, initializer=lambda: {'Me': 0})
-    happiness_map['Me'] = defaultdict(lambda: 0)
+    happiness_map = parse_data(data, initializer=lambda: {"Me": 0})
+    happiness_map["Me"] = defaultdict(lambda: 0)
     return solve(happiness_map)

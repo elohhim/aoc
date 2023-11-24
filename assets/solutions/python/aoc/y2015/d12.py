@@ -1,9 +1,9 @@
 import json
 import re
-from typing import Any, Dict
+from typing import Any
 
 
-PATTERN = r'-?[1-9][0-9]*'
+PATTERN = r"-?[1-9][0-9]*"
 
 
 def walk(json_data, filter):
@@ -30,6 +30,7 @@ def solve_1(data: str) -> int:
 
 
 def solve_2(data: str) -> int:
-    def red_filter(d: Dict[str, Any]) -> bool:
+    def red_filter(d: dict[str, Any]) -> bool:
         return "red" in d.values()
+
     return walk(parse_data(data), red_filter)

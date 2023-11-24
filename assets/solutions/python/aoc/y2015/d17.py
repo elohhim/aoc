@@ -1,21 +1,20 @@
 import random
-from typing import List, Tuple
+from typing import Optional
 
 
-def parse_data(data: str) -> List[int]:
-    return [int(l) for l in data.split('\n')]
+def parse_data(data: str) -> list[int]:
+    return [int(l) for l in data.split("\n")]
 
 
-def sum_volume(containers: List[Tuple[int, int]]) -> int:
+def sum_volume(containers: list[tuple[int, int]]) -> int:
     return sum(c[1] for c in containers)
 
 
 def get_fitting_combinations(data: str) -> int:
-    """Once again just for fun: randomized solution.
-    """
+    """Once again just for fun: randomized solution."""
     volume, *containers = parse_data(data)
 
-    def _try() -> List[int]:
+    def _try() -> Optional[list[int]]:
         available = list(enumerate(containers))
         selected = []
         while sum_volume(selected) < volume:

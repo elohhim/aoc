@@ -1,3 +1,10 @@
+from collections import deque
+
+
+type Container = str
+type ContainerStack = deque[Container]
+
+
 def parse_data(data: str) -> None:
     pass
 

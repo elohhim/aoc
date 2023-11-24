@@ -1,18 +1,21 @@
 from collections import defaultdict
-from typing import Callable, Dict, Tuple
+from typing import Callable
 import random
 import re
+
 
 PATTERN = r"(.*) to (.*) = ([0-9]+)"
 
 
-def parse_line(line: str) -> Tuple[str, str, int]:
+def parse_line(line: str) -> tuple[str, str, int]:
     match = re.match(PATTERN, line)
-    return match[1], match[2], int(match[3])
+    if match is not None:
+        return match[1], match[2], int(match[3])
+    raise ValueError(f"Malformed line: {line}")
 
 
-def parse_data(data: str) -> Dict[str, Dict[str, int]]:
-    lines = map(str.strip, data.split('\n'))
+def parse_data(data: str) -> dict[str, dict[str, int]]:
+    lines = map(str.strip, data.split("\n"))
     edges = map(parse_line, lines)
     distances = defaultdict(dict)
     for x, y, distance in edges:
@@ -22,8 +25,7 @@ def parse_data(data: str) -> Dict[str, Dict[str, int]]:
 
 
 def solve(data: str, fun: Callable) -> int:
-    """This is just for fun: MONTE CARLO!
-    """
+    """This is just for fun: MONTE CARLO!"""
     distances = parse_data(data)
 
     def walk() -> int:

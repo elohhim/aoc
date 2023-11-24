@@ -2,13 +2,13 @@
 This solution is overcomplicated (and sometimes borderline stupid) on purpose
 as I am refreshing several topics after long break from Python.
 """
-from typing import cast, get_args, Callable, ClassVar, List, Literal, Tuple
+from typing import cast, get_args, Callable, ClassVar, Literal
 
 
-MoveCode1 = Literal["A", "B", "C"]
-MoveCode2 = Literal["X", "Y", "Z"]
-MoveCode = MoveCode1 | MoveCode2
-MoveName = Literal["ROCK", "PAPER", "SCISSORS"]
+type MoveCode1 = Literal["A", "B", "C"]
+type MoveCode2 = Literal["X", "Y", "Z"]
+type MoveCode = MoveCode1 | MoveCode2
+type MoveName = Literal["ROCK", "PAPER", "SCISSORS"]
 
 
 class MoveMeta(type):
@@ -84,10 +84,10 @@ class Move(metaclass=MoveMeta):
         raise RuntimeError(f"Can't add {outcome} to {self}")
 
 
-Row = Tuple[MoveCode1, MoveCode2]
-Rows = List[Row]
-Round = Tuple[Move, Move]
-Strategy = List[Round]
+Row = tuple[MoveCode1, MoveCode2]
+Rows = list[Row]
+Round = tuple[Move, Move]
+Strategy = list[Round]
 
 
 def calculate_round_score(round: Round) -> int:

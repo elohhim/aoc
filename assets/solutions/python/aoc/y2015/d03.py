@@ -1,22 +1,23 @@
-from typing import Literal, Set, Tuple
+from typing import Literal
 
-Dir = Literal['<', '>', 'v', '^']
-Coord = Tuple[int, int]
+
+type Dir = Literal["<", ">", "v", "^"]
+type Coord = tuple[int, int]
 
 
 def travel(start: Coord, direction: Dir) -> Coord:
-    if direction == '<':
+    if direction == "<":
         x, y = start[0] - 1, start[1]
-    if direction == '>':
+    if direction == ">":
         x, y = start[0] + 1, start[1]
-    if direction == 'v':
+    if direction == "v":
         x, y = start[0], start[1] - 1
-    if direction == '^':
+    if direction == "^":
         x, y = start[0], start[1] + 1
     return x, y
 
 
-def visited_houses(start: Coord, directions: str) -> Set[Coord]:
+def visited_houses(start: Coord, directions: str) -> set[Coord]:
     houses = set()
     houses.add(start)
     for direction in directions:
