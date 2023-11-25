@@ -4,6 +4,7 @@ import elohhim.aoc.di.DIFramework;
 import elohhim.aoc.di.spring.ApplicationConfig;
 import elohhim.aoc.runner.AoCRunner;
 import elohhim.aoc.shared.PuzzleKey;
+import lombok.extern.flogger.Flogger;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
@@ -14,6 +15,7 @@ import picocli.CommandLine.Parameters;
     name = "AoCApp",
     description = "Runner application for Java based Advent of Code solutions",
     subcommands = {CommandLine.HelpCommand.class})
+@Flogger
 public class AoCApp {
 
   public static void main(String[] args) {
@@ -37,6 +39,7 @@ public class AoCApp {
       @Parameters(arity = "1", paramLabel = "<year>", description = "Year") int year,
       @Parameters(arity = "1", paramLabel = "<day>", description = "Day") int day) {
 
+    log.atInfo().log(STR."CWD: \{System.getProperty("user.dir")}");
     var puzzleKey = PuzzleKey.of(year, day);
     switch (diFramework) {
       case SPRING -> runSpring(inputPath, puzzleKey);
