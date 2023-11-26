@@ -36,7 +36,7 @@ jobs:
         uses: actions/configure-pages@v3
       - name: Install dependencies
         working-directory: ./viewer
-        run: npm ci
+        run: npm ci --prefix=builders && npm ci
       - name: Build AoC Viewer HTML
         working-directory: ./viewer
         run: npm run predeploy
