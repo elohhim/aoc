@@ -11,6 +11,7 @@ import {
 import { Day, EventKey } from '../../src/shared/model/event-key';
 import { SolutionKey } from '../../src/shared/model/solution-key';
 import * as fs from 'fs';
+import * as path from 'path';
 import { SolutionMetadataRecord } from '../../src/shared/model/solution-metadata-record';
 import { FileMetadata } from '../../src/shared/model/file-metadata';
 
@@ -42,7 +43,11 @@ export const SOLUTIONS_METADATA: SolutionMetadataRecord[] = ${JSON.stringify(
   )};
 `;
 
-  fs.writeFileSync(`${options.outputDir}/metadata.ts`, tsContent);
+  // Ensure the directory exists before writing the file
+  if (!fs.existsSync(options.outputDir)) {
+    fs.mkdirSync(options.outputDir, { recursive: true });
+  }
+  fs.writeFileSync(path.join(options.outputDir, 'metadata.ts'), tsContent);
 
   return { success: true };
 
