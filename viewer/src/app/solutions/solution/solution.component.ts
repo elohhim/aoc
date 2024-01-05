@@ -1,5 +1,10 @@
 import { AsyncPipe } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  WritableSignal,
+  signal,
+} from '@angular/core';
 import { MarkdownModule } from 'ngx-markdown';
 import { Observable, map } from 'rxjs';
 import { IndexService } from 'src/app/+service/index.service';
@@ -25,13 +30,28 @@ import { SolutionKeyProviderComponent } from '../solution-key-provider/solution-
   ],
 })
 export class SolutionComponent {
-  protected readonly solutionKey$: Observable<SolutionKey> = this.solutionKeyProvider.solutionKey$;
-  protected readonly files$: Observable<FileMetadata[]> = this.solutionKey$.pipe(
-    map((solutionKey) => this.indexService.getSolutionFiles(solutionKey))
+  protected readonly solutionKey$: Observable<SolutionKey> =
+    this.solutionKeyProvider.solutionKey$;
+  protected readonly files$: Observable<
+    {
+      metadata: FileMetadata;
+      pending: WritableSignal<boolean>;
+    }[]
+  > = this.solutionKey$.pipe(
+    map((solutionKey) =>
+      this.indexService.getSolutionFiles(solutionKey).map((metadata) => ({
+        metadata,
+        pending: signal(true),
+      }))
+    )
   );
 
   constructor(
     private indexService: IndexService,
     private solutionKeyProvider: SolutionKeyProviderComponent
   ) {}
+
+  protected handleLoad($event: WritableSignal<boolean>): void {
+    $event.set(false);
+  }
 }

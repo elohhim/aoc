@@ -5,10 +5,15 @@
 
   <details open>
     <summary>
-      {{ file | fileName }}
-      <a appExternalLink [href]="file | gitHubLink"> see on GitHub </a>
+      {{ file.metadata | fileName }}
+      <a appExternalLink [href]="file.metadata | gitHubLink"> see on GitHub </a>
     </summary>
-    <markdown [src]="file.assetPath" lineNumbers />
+    <markdown
+      [class.loading]="file.pending()"
+      [src]="file.metadata.assetPath"
+      (load)="handleLoad(file.pending)"
+      lineNumbers
+    />
   </details>
   <hr />
 

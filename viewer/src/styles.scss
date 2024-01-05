@@ -69,3 +69,21 @@ summary {
 .quiet {
   opacity: 0.5;
 }
+
+.loading:after {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom;
+  color: var(--green-dark);
+  font-family: monospace;
+  font-size: 24px;
+  animation: ellipsis steps(5,end) 1600ms infinite;
+  content: "\2026"; /* ascii code for the ellipsis character */
+  width: 0;
+}
+
+@keyframes ellipsis {
+  to {
+    width: 1em;    
+  }
+}
